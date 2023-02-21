@@ -21,8 +21,7 @@ import javax.swing.JScrollPane;
 
 public class MZ_main {
 
-	private JFrame frame;
-	private JTextField textField;
+	
 
 	public static void main(String[] args) {
 		
