@@ -90,7 +90,7 @@ public class MZ_list1 {
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setToolTipText("");
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"★★★★★★", "★★★★★"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"★★★★★", "★★★★", "★★★", "★★" ,"★"}));
 		comboBox.setSelectedIndex(5);
 		
 		JLabel lblNewLabel_3 = new JLabel("영업시간 : 12:00 ~ 20:30");
