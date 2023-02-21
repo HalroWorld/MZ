@@ -1,30 +1,20 @@
 package mz;
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
-import java.awt.GridLayout;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.BoxLayout;
-import java.awt.BorderLayout;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
-import com.jgoodies.forms.layout.FormSpecs;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.JButton;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.SwingConstants;
-import java.awt.Color;
-import java.awt.Font;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JScrollBar;
-import java.awt.Component;
-import javax.swing.Box;
-import javax.swing.JToggleButton;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingConstants;
 
 public class Mz_main {
 
@@ -47,11 +37,12 @@ public class Mz_main {
 		});
 	}
 
-	/** ㄱㅇ
+	/**
 	 * Create the application.
 	 */
 	public Mz_main() {
 		initialize();
+		
 	}
 
 	/**
@@ -62,6 +53,9 @@ public class Mz_main {
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
 		frame.setBounds(100, 100, 1102, 999);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setIconImage(new ImageIcon("src/mz/mzImg/mzduck.png").
+				getImage());
+		frame.setTitle("맛-ZIP");
 		
 		JLabel lblNewLabel = new JLabel("맛집 로고"); // 메인 상단 로고
 		lblNewLabel.setFont(new Font("배달의민족 도현", Font.BOLD, 30));
