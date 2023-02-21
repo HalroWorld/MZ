@@ -15,6 +15,9 @@ import javax.swing.JScrollBar;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 public class Mz_main {
 
@@ -37,12 +40,11 @@ public class Mz_main {
 		});
 	}
 
-	/**
+	/** ㄱㅇ
 	 * Create the application.
 	 */
 	public Mz_main() {
 		initialize();
-		
 	}
 
 	/**
@@ -53,149 +55,96 @@ public class Mz_main {
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
 		frame.setBounds(100, 100, 1102, 999);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setIconImage(new ImageIcon("src/mz/mzImg/mzduck.png").
-				getImage());
+		frame.setIconImage(new ImageIcon("src/mz/mzImg/mzduck.png").getImage());
 		frame.setTitle("맛-ZIP");
+		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("맛집 로고"); // 메인 상단 로고
-		lblNewLabel.setFont(new Font("배달의민족 도현", Font.BOLD, 30));
+		JPanel panel = new JPanel();
+		panel.setBounds(1078, 0, 10, 962);
+		frame.getContentPane().add(panel);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(33, 36, 1002, 124);
+		lblNewLabel.setIcon(new ImageIcon(Mz_main.class.getResource("/mz/mzImg/mzducklogo1.png")));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		frame.getContentPane().add(lblNewLabel);
 		
-		textField = new JTextField();  // 검색창
-		textField.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(0, 186, 1085, 776);
+		frame.getContentPane().add(scrollPane);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(255, 255, 255));
+		scrollPane.setViewportView(panel_1);
+		panel_1.setLayout(null);
+		
+		textField = new JTextField();
 		textField.setHorizontalAlignment(SwingConstants.LEFT);
+		textField.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		textField.setColumns(10);
-		// 메인 메뉴 버튼
-		JButton btn_K = new JButton("");
-		btn_K.setIcon(new ImageIcon("src/mz/mzImg/k.png"));
-		btn_K.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btn_K.setForeground(new Color(255, 240, 0));
-		btn_K.setBackground(new Color(255,255,255));
-		
-		JButton btn_C = new JButton("");
-		btn_C.setIcon(new ImageIcon("src/mz/mzImg/c.png"));
-		btn_C.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btn_C.setBackground(new Color(255,255,255));
-		
-		JButton btn_F = new JButton("");
-		btn_F.setIcon(new ImageIcon("src/mz/mzImg/f.png"));
-		btn_F.setBackground(new Color(255,255,255));
-		
-		JButton btn_az = new JButton("");
-		btn_az.setIcon(new ImageIcon("src/mz/mzImg/a.png"));
-		btn_az.setBackground(new Color(255,255,255));
-		
-		JButton btn_J = new JButton("");
-		btn_J.setIcon(new ImageIcon("src/mz/mzImg/j.png"));
-		btn_J.setBackground(new Color(255,255,255));
-		
-		JButton btn_D = new JButton("");
-		btn_D.setIcon(new ImageIcon("src/mz/mzImg/d.png"));
-		btn_D.setBackground(new Color(255,255,255));
-		
-		// 잘은 모르겠는데 여기가 하단 버튼들 
-		JButton btn_QNA = new JButton("");
-		btn_QNA.setIcon(new ImageIcon("src/mz/mzImg/QA.png"));
-		btn_QNA.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btn_QNA.setBackground(new Color(255,255,255));
-		
-		JButton btn_Home = new JButton("");
-		btn_Home.setIcon(new ImageIcon("src/mz/mzImg/home.png"));
-		btn_Home.setBackground(new Color(255,255,255));
-		
-		JButton btn_Re = new JButton("");
-		btn_Re.setIcon(new ImageIcon("src/mz/mzImg/re.png"));
-		btn_Re.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btn_Re.setBackground(new Color(255,255,255));
-		
-		JScrollBar scrollBar = new JScrollBar();
+		textField.setBounds(45, 27, 879, 48);
+		panel_1.add(textField);
 		
 		JButton button = new JButton("");
-		button.setBackground(new Color(255,255,255));
 		button.setIcon(new ImageIcon(Mz_main.class.getResource("/mz/mzImg/se.png")));
-		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(71)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(7)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblNewLabel, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(textField, GroupLayout.DEFAULT_SIZE, 873, Short.MAX_VALUE)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(button, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED))))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(btn_K, GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE))
-								.addGroup(groupLayout.createSequentialGroup()
-									.addGap(0)
-									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addComponent(btn_QNA, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
-										.addComponent(btn_az, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE))))
-							.addGap(68)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(btn_C, GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
-								.addComponent(btn_Home, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
-								.addComponent(btn_J, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE))
-							.addGap(87)
-							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addComponent(btn_F, GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-								.addComponent(btn_Re, GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-								.addComponent(btn_D, GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE))))
-					.addGap(27)
-					.addComponent(scrollBar, GroupLayout.PREFERRED_SIZE, 8, GroupLayout.PREFERRED_SIZE))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(23)
-							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
-							.addGap(68)
-							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addComponent(textField, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)
-								.addComponent(button, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
-							.addGap(63)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-									.addComponent(btn_F, GroupLayout.PREFERRED_SIZE, 168, GroupLayout.PREFERRED_SIZE)
-									.addComponent(btn_C, GroupLayout.PREFERRED_SIZE, 168, GroupLayout.PREFERRED_SIZE))
-								.addComponent(btn_K, GroupLayout.PREFERRED_SIZE, 168, GroupLayout.PREFERRED_SIZE))
-							.addGap(45)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(btn_az, GroupLayout.PREFERRED_SIZE, 168, GroupLayout.PREFERRED_SIZE)
-								.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-									.addComponent(btn_J, GroupLayout.PREFERRED_SIZE, 168, GroupLayout.PREFERRED_SIZE)
-									.addComponent(btn_D, GroupLayout.PREFERRED_SIZE, 168, GroupLayout.PREFERRED_SIZE)))
-							.addGap(103)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-									.addComponent(btn_QNA, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE)
-									.addComponent(btn_Home, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE))
-								.addComponent(btn_Re, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE)))
-						.addComponent(scrollBar, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 952, Short.MAX_VALUE))
-					.addContainerGap())
-		);
-		frame.getContentPane().setLayout(groupLayout);
+		button.setBackground(Color.WHITE);
+		button.setBounds(931, 26, 95, 49);
+		panel_1.add(button);
+		
+		JButton btn_K = new JButton("");
+		btn_K.setIcon(new ImageIcon(Mz_main.class.getResource("/mz/mzImg/k.png")));
+		btn_K.setForeground(new Color(255, 240, 0));
+		btn_K.setBackground(Color.WHITE);
+		btn_K.setBounds(44, 138, 275, 168);
+		panel_1.add(btn_K);
+		
+		JButton btn_C = new JButton("");
+		btn_C.setIcon(new ImageIcon(Mz_main.class.getResource("/mz/mzImg/c.png")));
+		btn_C.setBackground(Color.WHITE);
+		btn_C.setBounds(398, 140, 275, 168);
+		panel_1.add(btn_C);
+		
+		JButton btn_F = new JButton("");
+		btn_F.setIcon(new ImageIcon(Mz_main.class.getResource("/mz/mzImg/f.png")));
+		btn_F.setBackground(Color.WHITE);
+		btn_F.setBounds(749, 138, 277, 168);
+		panel_1.add(btn_F);
+		
+		JButton btn_D = new JButton("");
+		btn_D.setIcon(new ImageIcon(Mz_main.class.getResource("/mz/mzImg/d.png")));
+		btn_D.setBackground(Color.WHITE);
+		btn_D.setBounds(749, 351, 277, 168);
+		panel_1.add(btn_D);
+		
+		JButton btn_J = new JButton("");
+		btn_J.setIcon(new ImageIcon(Mz_main.class.getResource("/mz/mzImg/j.png")));
+		btn_J.setBackground(Color.WHITE);
+		btn_J.setBounds(398, 353, 275, 168);
+		panel_1.add(btn_J);
+		
+		JButton btn_az = new JButton("");
+		btn_az.setIcon(new ImageIcon(Mz_main.class.getResource("/mz/mzImg/a.png")));
+		btn_az.setBackground(Color.WHITE);
+		btn_az.setBounds(44, 351, 275, 168);
+		panel_1.add(btn_az);
+		
+		JButton btn_QNA = new JButton("Q&A");
+		btn_QNA.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 30));
+		btn_QNA.setBackground(Color.WHITE);
+		btn_QNA.setBounds(44, 622, 275, 106);
+		panel_1.add(btn_QNA);
+		
+		JButton btn_Home = new JButton("");
+		btn_Home.setIcon(new ImageIcon(Mz_main.class.getResource("/mz/mzImg/home.png")));
+		btn_Home.setBackground(Color.WHITE);
+		btn_Home.setBounds(398, 624, 275, 106);
+		panel_1.add(btn_Home);
+		
+		JButton btn_Re = new JButton("리뷰");
+		btn_Re.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 30));
+		btn_Re.setBackground(Color.WHITE);
+		btn_Re.setBounds(749, 622, 277, 106);
+		panel_1.add(btn_Re);
 		
 		
 	}
