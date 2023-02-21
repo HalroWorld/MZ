@@ -85,14 +85,15 @@ public class MZ_list1 {
 		lblNewLabel_1.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 30));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JLabel lblNewLabel_2 = new JLabel("가게이름");
-		lblNewLabel_2.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 30));
+		JLabel lblNewLabel_2 = new JLabel("리코리코");
+		lblNewLabel_2.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 34));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.LEFT);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setToolTipText("");
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"★★★★★", "★★★★", "★★★","★★","★"}));
 		comboBox.setSelectedIndex(4);
+		comboBox.setBackground(new Color(255,255,255));
 		
 		JLabel lblNewLabel_3 = new JLabel("영업시간");
 		lblNewLabel_3.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 26));
@@ -133,19 +134,19 @@ public class MZ_list1 {
 				.addGroup(gl_panel.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 255, GroupLayout.PREFERRED_SIZE)
-					.addGap(9)
+					.addGap(5)
 					.addComponent(lblNewLabel_6, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(583, Short.MAX_VALUE))
+					.addContainerGap(587, Short.MAX_VALUE))
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGap(14)
 					.addComponent(lblNewLabel_5, GroupLayout.PREFERRED_SIZE, 548, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(488, Short.MAX_VALUE))
 				.addGroup(gl_panel.createSequentialGroup()
-					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
-						.addComponent(lblNewLabel_1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup()
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(lblNewLabel_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addGroup(gl_panel.createSequentialGroup()
 							.addContainerGap()
 							.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
@@ -171,18 +172,18 @@ public class MZ_list1 {
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_panel.createSequentialGroup()
 							.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 291, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_panel.createSequentialGroup()
-									.addPreferredGap(ComponentPlacement.RELATED)
+									.addGap(18)
 									.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_panel.createSequentialGroup()
-									.addGap(37)
+								.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+									.addPreferredGap(ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
 									.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 										.addComponent(lblNewLabel_6)
-										.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))))
+										.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+									.addGap(25))))
 						.addComponent(lblNewLabel_1_1, GroupLayout.PREFERRED_SIZE, 291, GroupLayout.PREFERRED_SIZE))
-					.addGap(21)
+					.addGap(9)
 					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNewLabel_4, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
@@ -192,7 +193,7 @@ public class MZ_list1 {
 						.addComponent(lblNewLabel_4_1_1, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE))
 					.addGap(27)
 					.addComponent(lblNewLabel_5, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(102, Short.MAX_VALUE))
+					.addContainerGap(99, Short.MAX_VALUE))
 		);
 		panel.setLayout(gl_panel);
 		frame.getContentPane().setLayout(groupLayout);
