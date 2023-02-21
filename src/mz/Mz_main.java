@@ -47,7 +47,7 @@ public class Mz_main {
 		});
 	}
 
-	/**
+	/** ㄱㅇ
 	 * Create the application.
 	 */
 	public Mz_main() {
