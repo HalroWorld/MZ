@@ -154,6 +154,17 @@ public class MZ_list_p2 {
 		btn_More.setBorderPainted(false);
 		btn_More.setBackground(new Color (255,255,255));
 		list_G.add(btn_More);
+		
+		JLabel lblNewLabel = new JLabel("주소");
+		lblNewLabel.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 30));
+		lblNewLabel.setBounds(12, 548, 71, 52);
+		list_G.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("경남 창원시 의창구 창원대학로 어쩌구~");
+		lblNewLabel_1.setForeground(new Color(70, 70, 70));
+		lblNewLabel_1.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+		lblNewLabel_1.setBounds(83, 548, 701, 52);
+		list_G.add(lblNewLabel_1);
 		frame.getContentPane().setLayout(groupLayout);
 		frame.setBounds(100, 100, 1101, 999);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
