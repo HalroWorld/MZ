@@ -1,3 +1,4 @@
+
 package mz;
 
 import java.awt.EventQueue;
@@ -5,7 +6,7 @@ import java.awt.EventQueue;
 public class MZ_main {
 	
 	public MZ_main() {
-		new MZ_p1();
+		new MZ_home_p1();
 	}
 
 	public static void main(String[] args) {

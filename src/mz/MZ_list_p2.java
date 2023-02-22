@@ -17,38 +17,23 @@ import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 
-public class MZ_list1 {
+public class MZ_list_p2 {
 
 	public JFrame frame;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MZ_list1 window = new MZ_list1();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
 	 */
-	public MZ_list1() {
-		initialize();
+	public MZ_list_p2() {
+		list_P2();
 		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void list_P2() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
 		
@@ -81,7 +66,7 @@ public class MZ_list1 {
 		title_G.add(title);
 		
 		JButton btn_home = new JButton("");
-		btn_home.setIcon(new ImageIcon(MZ_list1.class.getResource("/mz/mzImg/home.png")));
+		btn_home.setIcon(new ImageIcon(MZ_list_p2.class.getResource("/mz/mzImg/home.png")));
 		btn_home.setBounds(928, 60, 67, 62);
 		btn_home.setBorderPainted(false);
 		btn_home.setBackground(new Color (255,255,255));
