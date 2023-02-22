@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class MZ_menu_p3 {
 
@@ -118,7 +120,7 @@ public class MZ_menu_p3 {
 		panel_1.add(btn_menu);
 		
 		// 메뉴 설명
-		JLabel explanation = new JLabel("시베리아 앞바다 소금을 뿌린 주먹밥");
+		JLabel explanation = new JLabel("우리집 소금 엄마가 직접 뿌려줌");
 		explanation.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 16));
 		explanation.setBounds(33, 152, 322, 63);
 		panel_1.add(explanation);
@@ -210,5 +212,13 @@ public class MZ_menu_p3 {
 		btn_review.setBounds(29, 458, 1027, 59);
 		btn_review.setBackground(new Color (255,255,255));
 		panel.add(btn_review);
+		
+		JComboBox score = new JComboBox();
+		score.setForeground(new Color(255, 199, 7));
+		score.setModel(new DefaultComboBoxModel(new String[] {"★★★★★","★★★★","★★★","★★","★"}));
+		score.setSelectedIndex(4);
+		score.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
+		score.setBounds(204, 380, 190, 41);
+		panel.add(score);
 	}
 }
