@@ -14,6 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
 
 public class MZ_list1 {
 
@@ -59,8 +61,8 @@ public class MZ_list1 {
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(title_G, GroupLayout.PREFERRED_SIZE, 1083, GroupLayout.PREFERRED_SIZE)
-						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 1084, GroupLayout.PREFERRED_SIZE))
+						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 1084, GroupLayout.PREFERRED_SIZE)
+						.addComponent(title_G, GroupLayout.PREFERRED_SIZE, 1087, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
@@ -77,6 +79,13 @@ public class MZ_list1 {
 		title.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 54));
 		title.setBounds(36, 39, 211, 101);
 		title_G.add(title);
+		
+		JButton btn_home = new JButton("");
+		btn_home.setIcon(new ImageIcon(MZ_list1.class.getResource("/mz/mzImg/home.png")));
+		btn_home.setBounds(928, 60, 67, 62);
+		btn_home.setBorderPainted(false);
+		btn_home.setBackground(new Color (255,255,255));
+		title_G.add(btn_home);
 		
 		JPanel list_G = new JPanel();
 		list_G.setBackground(Color.WHITE);
@@ -95,16 +104,10 @@ public class MZ_list1 {
 		img2.setBounds(540, 0, 542, 327);
 		list_G.add(img2);
 		
-		JLabel store = new JLabel("리코리코");
-		store.setForeground(new Color(0, 0, 0));
-		store.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 45));
-		store.setBounds(0, 337, 165, 109);
-		list_G.add(store);
-		
 		JLabel score = new JLabel("별점");
 		score.setForeground(new Color(39, 39, 39));
 		score.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 30));
-		score.setBounds(202, 337, 78, 109);
+		score.setBounds(369, 336, 78, 109);
 		list_G.add(score);
 		
 		JLabel open_H = new JLabel("영업시간");
@@ -119,7 +122,7 @@ public class MZ_list1 {
 		star.setBackground(new Color(255,255,255));
 		star.setModel(new DefaultComboBoxModel(new String[] {"★★★★★","★★★★","★★★","★★","★"}));
 		star.setSelectedIndex(4);
-		star.setBounds(288, 378, 165, 35);
+		star.setBounds(455, 377, 165, 35);
 		list_G.add(star);
 		
 		JLabel Hour = new JLabel("12:00 ~ 8:30");
@@ -151,6 +154,21 @@ public class MZ_list1 {
 		views_score.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 20));
 		views_score.setBounds(600, 429, 118, 109);
 		list_G.add(views_score);
+		
+		JButton btn_storeName = new JButton("리코리코");
+		btn_storeName.setHorizontalAlignment(SwingConstants.LEFT);
+		btn_storeName.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 40));
+		btn_storeName.setBounds(0, 355, 350, 68);
+		btn_storeName.setBorderPainted(false);
+		btn_storeName.setBackground(new Color (255,255,255));
+		list_G.add(btn_storeName);
+		
+		JButton btn_More = new JButton("더보기");
+		btn_More.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 20));
+		btn_More.setBounds(790, 358, 147, 62);
+		btn_More.setBorderPainted(false);
+		btn_More.setBackground(new Color (255,255,255));
+		list_G.add(btn_More);
 		frame.getContentPane().setLayout(groupLayout);
 		frame.setBounds(100, 100, 1101, 999);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

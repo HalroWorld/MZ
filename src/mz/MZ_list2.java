@@ -139,6 +139,7 @@ public class MZ_list2 {
 		// 좋아요 버튼
 		JButton btn_like = new JButton("");
 		btn_like.setIcon(new ImageIcon(MZ_list2.class.getResource("/mz/mzImg/favorite1.png")));
+		btn_like.setPressedIcon(new ImageIcon(MZ_list2.class.getResource("/mz/mzImg/favorite2.png")));
 		btn_like.setBounds(136, 375, 46,46);
 		btn_like.setBorderPainted(false);
 		btn_like.setBackground(new Color (255,255,255));
