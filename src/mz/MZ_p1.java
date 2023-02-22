@@ -2,6 +2,8 @@ package mz;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -13,20 +15,46 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class MZ_p1 {
-	public JFrame frame;
-	public JTextField search;
+	private JPanel menu_G = new JPanel();
+	private JFrame frame;
+	private JButton btn_K;
+	private JTextField search;
 
 	public MZ_p1() {
 		main_P1();
+		frame.setTitle("맛-ZIP");
+		frame.setResizable(false);
+		frame.setBounds(100, 100, 1102, 999);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		menu_G.add(getbtn_K());
+		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
+	}
+	
+	public JButton getbtn_K() {
+		if(btn_K == null) {
+			btn_K = new JButton("");
+			btn_K.setIcon(new ImageIcon(MZ_p1.class.getResource("/mz/mzImg/k.png")));
+			btn_K.setBackground(Color.WHITE);
+			btn_K.setBounds(44, 138, 275, 168);
+			btn_K.setBorderPainted(false);			
+			btn_K.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					MZ_list1 mylist = new MZ_list1();
+					mylist.frame.setVisible(true);
+					frame.dispose();
+				}
+			});
+		}
+		return btn_K;
 	}
 
 	public void main_P1() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
-		frame.setBounds(100, 100, 1102, 999);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setIconImage(new ImageIcon("src/mz/mzImg/mzduck.png").getImage());
-		frame.setTitle("맛-ZIP");
 		frame.getContentPane().setLayout(null);
 		
 		JPanel bg = new JPanel();
@@ -43,7 +71,7 @@ public class MZ_p1 {
 		scrollPane.setBounds(0, 186, 1085, 776);
 		frame.getContentPane().add(scrollPane);
 		
-		JPanel menu_G = new JPanel();
+//		JPanel menu_G = new JPanel();
 		menu_G.setBackground(new Color(255, 255, 255));
 		scrollPane.setViewportView(menu_G);
 		menu_G.setLayout(null);
@@ -60,15 +88,7 @@ public class MZ_p1 {
 		button.setBackground(Color.WHITE);
 		button.setBounds(931, 26, 95, 49);
 		menu_G.add(button);
-		
-		JButton btn_K = new JButton("");
-		btn_K.setIcon(new ImageIcon(MZ_p1.class.getResource("/mz/mzImg/k.png")));
-		btn_K.setForeground(new Color(255, 240, 0));
-		btn_K.setBackground(Color.WHITE);
-		btn_K.setBounds(44, 138, 275, 168);
-		btn_K.setBorderPainted(false);
-		menu_G.add(btn_K);
-		
+				
 		JButton btn_C = new JButton("");
 		btn_C.setIcon(new ImageIcon(MZ_p1.class.getResource("/mz/mzImg/c.png")));
 		btn_C.setBackground(Color.WHITE);
@@ -125,5 +145,5 @@ public class MZ_p1 {
 		btn_Re.setBorderPainted(false);
 		menu_G.add(btn_Re);
 	}
-	
+
 }
