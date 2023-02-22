@@ -13,6 +13,8 @@ public class MZ_tbl {
 	String MzAddr;
 	Blob mzImg;
 	Blob mzImg2;
+	String mzImgName;
+	String mzImg2Name;
 	
 	public int getMzUid() {
 		return mzUid;
@@ -55,6 +57,18 @@ public class MZ_tbl {
 	}
 	public void setMzHit(int mzHit) {
 		MzHit = mzHit;
+	}
+	public String getMzImgName() {
+		return mzImgName;
+	}
+	public void setMzImgName(String mzImgName) {
+		this.mzImgName = mzImgName;
+	}
+	public String getMzImg2Name() {
+		return mzImg2Name;
+	}
+	public void setMzImg2Name(String mzImg2Name) {
+		this.mzImg2Name = mzImg2Name;
 	}
 	public String getMzAddr() {
 		return MzAddr;

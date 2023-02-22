@@ -93,13 +93,15 @@ public class MZ_list_p2 {
 		scrollPane.setViewportView(list_G);
 		list_G.setLayout(null);
 		
-		JLabel img1 = new JLabel("이미지");
+		JLabel img1 = new JLabel();
+		img1.setIcon(new ImageIcon(db.path));
 		img1.setHorizontalAlignment(SwingConstants.CENTER);
 		img1.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 28));
 		img1.setBounds(0, 0, 542, 327);
 		list_G.add(img1);
 		
-		JLabel img2 = new JLabel("이미지");
+		JLabel img2 = new JLabel();
+		img2.setIcon(new ImageIcon(db.path2));
 		img2.setHorizontalAlignment(SwingConstants.CENTER);
 		img2.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 28));
 		img2.setBounds(540, 0, 542, 327);
