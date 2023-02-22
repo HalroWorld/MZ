@@ -21,22 +21,20 @@ public class MZ_list_p2 {
 
 	public JFrame frame;
 
-	/**
-	 * Create the application.
-	 */
+
+	
 	public MZ_list_p2() {
 		list_P2();
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	
 	private void list_P2() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
-		
+		MZ_DB db = new MZ_DB();
+		db.select();
 		JPanel title_G = new JPanel();
 		title_G.setBackground(Color.WHITE);
 		
@@ -110,7 +108,7 @@ public class MZ_list_p2 {
 		star.setBounds(455, 377, 165, 35);
 		list_G.add(star);
 		
-		JLabel Hour = new JLabel("12:00 ~ 8:30");
+		JLabel Hour = new JLabel(db.mzList.getMzHours());
 		Hour.setForeground(new Color(39, 39, 39));
 		Hour.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 20));
 		Hour.setBounds(140, 429, 118, 109);
@@ -122,7 +120,7 @@ public class MZ_list_p2 {
 		reveiw.setBounds(298, 429, 78, 109);
 		list_G.add(reveiw);
 		
-		JLabel reveiw_score = new JLabel("9999+");
+		JLabel reveiw_score = new JLabel(Integer.toString(db.mzList.getMzHit()));
 		reveiw_score.setForeground(new Color(39, 39, 39));
 		reveiw_score.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 20));
 		reveiw_score.setBounds(374, 430, 118, 109);
@@ -134,13 +132,13 @@ public class MZ_list_p2 {
 		veiws.setBounds(504, 429, 78, 109);
 		list_G.add(veiws);
 		
-		JLabel views_score = new JLabel("9999+");
+		JLabel views_score = new JLabel(Integer.toString(db.mzList.getMzHit()));
 		views_score.setForeground(new Color(39, 39, 39));
 		views_score.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 20));
 		views_score.setBounds(600, 429, 118, 109);
 		list_G.add(views_score);
 		
-		JButton btn_storeName = new JButton("리코리코");
+		JButton btn_storeName = new JButton(db.mzList.getMzTitle());
 		btn_storeName.setHorizontalAlignment(SwingConstants.LEFT);
 		btn_storeName.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 40));
 		btn_storeName.setBounds(0, 355, 350, 68);
@@ -160,7 +158,7 @@ public class MZ_list_p2 {
 		lblNewLabel.setBounds(12, 548, 71, 52);
 		list_G.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("경남 창원시 의창구 창원대학로 어쩌구~");
+		JLabel lblNewLabel_1 = new JLabel(db.mzList.getMzAddr() );
 		lblNewLabel_1.setForeground(new Color(70, 70, 70));
 		lblNewLabel_1.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		lblNewLabel_1.setBounds(83, 548, 701, 52);
