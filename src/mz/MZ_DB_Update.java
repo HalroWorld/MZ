@@ -6,7 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class MZ_DB_Update {
-   public void update() {
+   public void update(String sql) {
+  	 
       Connection conn = null;
       
      try {
@@ -19,13 +20,13 @@ public class MZ_DB_Update {
     
       conn = DriverManager.getConnection(url, user1, passwd);
       
-      String sql = "update mz_tbl set mz_hit=(mz_hit+1)";
+//      String sql = "update mz_tbl set mz_hit=(mz_hit+1)";
       PreparedStatement pstmt = conn.prepareStatement(sql);
-//      pstmt.setString(1, " + 1");
+
       
       int rows = pstmt.executeUpdate();
       System.out.println("수정된 행 수: " + rows);
-       //PreparedStatement 닫기
+     
         pstmt.close();
         } catch (Exception e) {
               e.printStackTrace();

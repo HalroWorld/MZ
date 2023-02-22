@@ -19,7 +19,7 @@ import javax.swing.DefaultComboBoxModel;
 
 public class MZ_menu_p3 {
 
-	private static JFrame frame3;
+	private JFrame frame3;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -29,9 +29,6 @@ public class MZ_menu_p3 {
 		});
 	}
 	
-	/**
-	 * Create the application.
-	 */
 	public MZ_menu_p3() {
 		menu_P3();
 		frame3.setBounds(100, 100, 1102, 1270);
@@ -40,13 +37,11 @@ public class MZ_menu_p3 {
 		frame3.setLocationRelativeTo(null);		
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	
 	private void menu_P3() {
 		MZ_DB db = new MZ_DB();
 		db.select();
-		
+		MZ_DB_Update dbUp = new MZ_DB_Update();
 		frame3 = new JFrame();
 		frame3.getContentPane().setLayout(new BorderLayout(0, 0));
 		//전체적인 묶음용 패널임 신경 ㄴㄴ
@@ -126,7 +121,8 @@ public class MZ_menu_p3 {
 		panel_1.add(explanation);
 		
 		// 음식사진
-		JLabel sub_img = new JLabel("이미지");
+		JLabel sub_img = new JLabel("사진");
+		
 		sub_img.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 26));
 		sub_img.setBounds(487, 91, 562, 219);
 		panel_1.add(sub_img);
@@ -159,8 +155,8 @@ public class MZ_menu_p3 {
 		panel.add(store_Name);
 		
 		// 최상단 메인 사진
-		JLabel main_img = new JLabel("이미지 자리");
-		main_img.setIcon(null);
+		JLabel main_img = new JLabel();
+		main_img.setIcon(new ImageIcon(db.path3));
 		main_img.setBackground(new Color(255, 255, 255));
 		main_img.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 25));
 		main_img.setBounds(1, 0, 1087, 300);
@@ -213,12 +209,21 @@ public class MZ_menu_p3 {
 		btn_review.setBackground(new Color (255,255,255));
 		panel.add(btn_review);
 		
-		JComboBox score = new JComboBox();
+		String[] stars = {"★★★★★","★★★★","★★★","★★","★"};
+		
+		JComboBox score = new JComboBox(stars);
 		score.setForeground(new Color(255, 199, 7));
-		score.setModel(new DefaultComboBoxModel(new String[] {"★★★★★","★★★★","★★★","★★","★"}));
+//		score.setModel(new DefaultComboBoxModel(new String[] {"★★★★★","★★★★","★★★","★★","★"}));
 		score.setSelectedIndex(4);
 		score.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
 		score.setBounds(204, 380, 190, 41);
+		score.addActionListener(new ActionListener() {
+		   public void actionPerformed(ActionEvent e) {
+		  	 String selectedItem = score.getSelectedItem().toString();
+		  	int a = selectedItem.length();
+		  	dbUp.update("update mz_tbl set mz_star=(mz_star+" + a + "), mz_star_count=(mz_star_count +1) where mz_uid = 1;");
+		   }
+		  });
 		panel.add(score);
 	}
 }

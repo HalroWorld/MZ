@@ -10,12 +10,28 @@ public class MZ_tbl {
 	double MzStar;
 	String MzHours;
 	int	MzHit;
+	int MzReview;
 	String MzAddr;
-	Blob mzImg;
-	Blob mzImg2;
 	String mzImgName;
+	Blob mzImg;
 	String mzImg2Name;
+	Blob mzImg2;
+	String mzImg3Name;
+	Blob mzImg3;
+	int mzStarCount;
 	
+	public Blob getMzImg3() {
+		return mzImg3;
+	}
+	public void setMzImg3(Blob mzImg3) {
+		this.mzImg3 = mzImg3;
+	}
+	public String getMzImg3Name() {
+		return mzImg3Name;
+	}
+	public void setMzImg3Name(String mzImg3Name) {
+		this.mzImg3Name = mzImg3Name;
+	}	
 	public int getMzUid() {
 		return mzUid;
 	}
@@ -58,6 +74,13 @@ public class MZ_tbl {
 	public void setMzHit(int mzHit) {
 		MzHit = mzHit;
 	}
+	
+	public int getMzReview() {
+		return MzReview;
+	}
+	public void setMzReview(int mzReview) {
+		MzReview = mzReview;
+	}
 	public String getMzImgName() {
 		return mzImgName;
 	}
@@ -87,6 +110,12 @@ public class MZ_tbl {
 	}
 	public void setMzImg2(Blob mzImg2) {
 		this.mzImg2 = mzImg2;
+	}
+	public int getMzStarCount() {
+		return mzStarCount;
+	}
+	public void setMzStarCount(int mzStarCount) {
+		this.mzStarCount = mzStarCount;
 	}
 	
 	

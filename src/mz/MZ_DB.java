@@ -15,6 +15,7 @@ public class MZ_DB {
 	static MZ_tbl mzList = new MZ_tbl();
 	static String path;
 	static String path2;
+	static String path3;
 	public void select() {
 		Connection conn = null;
 		
@@ -31,7 +32,7 @@ public class MZ_DB {
       conn = DriverManager.getConnection(url, user1, passwd);
       
       String sql = "" +
-          "SELECT mz_uid, mz_title, mz_star, mz_hours, mz_hit, mz_addr, mz_img, mz_img2, mz_img_name, mz_img2_name " +
+          "SELECT mz_uid, mz_title, mz_star, mz_hours, mz_hit, mz_addr, mz_img, mz_img2, mz_img3, mz_img_name, mz_img2_name, mz_img3_name, mz_star_count " +
           "FROM mz_tbl " +
           "WHERE mz_uid =1 ";
       Statement st = conn.createStatement();
@@ -47,8 +48,11 @@ public class MZ_DB {
       	mzList.setMzAddr(rs.getString("mz_addr"));
       	mzList.setMzImg(rs.getBlob("mz_img"));
       	mzList.setMzImg2(rs.getBlob("mz_img2"));
+      	mzList.setMzImg3(rs.getBlob("mz_img3"));
       	mzList.setMzImgName(rs.getString("mz_img_name"));
       	mzList.setMzImg2Name(rs.getString("mz_img2_name"));
+      	mzList.setMzImg3Name(rs.getString("mz_img3_name"));
+      	mzList.setMzStarCount(rs.getInt("mz_star_count"));
 
       	 
          
@@ -61,7 +65,7 @@ public class MZ_DB {
            OutputStream os = new FileOutputStream("C:/Temp/" + mzList.getMzImgName());
 //           mzList.getMzImgName()
            path = "C:/Temp/" + mzList.getMzImgName();
-           System.out.println(path);
+           
            is.transferTo(os);
            os.flush();
            os.close();
@@ -74,6 +78,20 @@ public class MZ_DB {
            OutputStream os = new FileOutputStream("C:/Temp/" + mzList.getMzImg2Name());
 //           mzList.getMzImgName()
            path2 = "C:/Temp/" + mzList.getMzImg2Name();
+           
+           is.transferTo(os);
+           os.flush();
+           os.close();
+           is.close();
+         }
+         
+         Blob blob3 = mzList.getMzImg3();
+         if(blob3 != null) {
+        	 
+        	 InputStream is  = blob3.getBinaryStream();
+           OutputStream os = new FileOutputStream("C:/Temp/" + mzList.getMzImg3Name());
+//           mzList.getMzImgName()
+           path3 = "C:/Temp/" + mzList.getMzImg3Name();
            System.out.println(path);
            is.transferTo(os);
            os.flush();

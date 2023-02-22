@@ -1,21 +1,20 @@
 package mz;
-
+import java.awt.*;
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 
 public class MZ_list_p2 {
@@ -36,44 +35,32 @@ public class MZ_list_p2 {
 	
 	private void list_P2() {
 		frame2 = new JFrame();
+		frame2.getContentPane().setFont(new Font("굴림", Font.PLAIN, 67));
 		frame2.getContentPane().setBackground(new Color(255, 255, 255));
 		frame2.setIconImage(new ImageIcon("src/mz/mzImg/mzduck.png").getImage());
 
+		
+		
 		MZ_DB db = new MZ_DB();
 		db.select();
 		
 		title_G = new JPanel();
+		title_G.setPreferredSize(new Dimension(100, 200));
 		title_G.setBackground(Color.WHITE);
+		title_G.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JScrollPane scrollPane = new JScrollPane();
-		GroupLayout groupLayout = new GroupLayout(frame2.getContentPane());
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 1084, GroupLayout.PREFERRED_SIZE)
-						.addComponent(title_G, GroupLayout.PREFERRED_SIZE, 1087, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(title_G, GroupLayout.PREFERRED_SIZE, 195, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE))
-		);
-		title_G.setLayout(null);
 		
 		JLabel title = new JLabel("K- 푸드");
+	
+		title.setHorizontalAlignment(SwingConstants.LEFT);
 		title.setForeground(new Color(0, 0, 0));
-		title.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 54));
-		title.setBounds(36, 39, 211, 101);
+		title.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 99));
 		title_G.add(title);
 		
 		// 텍스트 변경 안되고 이미지 수정 필요
 		JButton btn_home = new JButton("home");
+		btn_home.setHorizontalAlignment(SwingConstants.RIGHT);
 		btn_home.setIcon(new ImageIcon(MZ_list_p2.class.getResource("/mz/mzImg/home.png")));
-		btn_home.setBounds(928, 60, 67, 62);
 		btn_home.setBorderPainted(false);
 		btn_home.setBackground(new Color (255,255,255));
 		title_G.add(btn_home);
@@ -87,12 +74,14 @@ public class MZ_list_p2 {
                 }
 			}
 		});
+
 		
 		JPanel list_G = new JPanel();
+		list_G.setPreferredSize(new Dimension(5000, 5000));
 		list_G.setBackground(Color.WHITE);
-		scrollPane.setViewportView(list_G);
+//		scrollPane.setViewportView(list_G);
 		list_G.setLayout(null);
-		
+	
 		JLabel img1 = new JLabel();
 		img1.setIcon(new ImageIcon(db.path));
 		img1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -132,7 +121,7 @@ public class MZ_list_p2 {
 		list_G.add(reveiw);
 		
 		JLabel reveiw_score = new JLabel(Integer.toString(db.mzList.getMzHit()));
-		reveiw_score.setForeground(new Color(39, 39, 39));
+		reveiw_score.setForeground(new Color(255, 199, 7));
 		reveiw_score.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 20));
 		reveiw_score.setBounds(668, 427, 118, 109);
 		list_G.add(reveiw_score);
@@ -162,9 +151,9 @@ public class MZ_list_p2 {
 			@Override
 			public void actionPerformed(ActionEvent e) {
                 if(btn_storeName.getText().equals(db.mzList.getMzTitle())){
-//                    MZ_menu_p3.MZ_menu_p3();
+////                    MZ_menu_p3.MZ_menu_p3();
                 	MZ_DB_Update up = new MZ_DB_Update();
-                	up.update();
+                	up.update("update mz_tbl set mz_hit=(mz_hit+1)");
                     MZ_menu_p3.main(null);
 					frame2.setVisible(false);
                 }
@@ -184,12 +173,13 @@ public class MZ_list_p2 {
                 if(btn_More.getText().equals("더보기")){
 //                    MZ_menu_p3.MZ_menu_p3();
                 	MZ_DB_Update up = new MZ_DB_Update();
-                	up.update();
+                	up.update("update mz_tbl set mz_hit=(mz_hit+1)");
                     MZ_menu_p3.main(null);
 					frame2.setVisible(false);
                 }
 			}
 		});
+		frame2.getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		JLabel lblNewLabel = new JLabel("주소");
 		lblNewLabel.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 30));
@@ -202,9 +192,53 @@ public class MZ_list_p2 {
 		addr.setBounds(83, 548, 861, 52);
 		list_G.add(addr);
 		
-		JLabel star = new JLabel("여기 별점자리 진짜 왜자꾸 없어지노");
-		star.setBounds(434, 371, 344, 47);
+		JLabel star ; 
+//		star.setHorizontalAlignment(SwingConstants.CENTER);
+			
+		int a = (int)db.mzList.getMzStar();
+		int b = db.mzList.getMzStarCount();
+		int avg = (int)a/b;
+		String result;
+		
+		switch(avg) {
+		case 5: result = "★★★★★";
+		break;
+		case 4: result = "★★★★";
+		break;
+		case 3: result = "★★★";
+		break;
+		case 2: result = "★★";
+		break;
+		case 1: result = "★";
+		break;
+		default: result = "계산 오류";
+		break;
+		}
+		System.out.print(result);
+		star = new JLabel(result);
+		
+		star.setForeground(new Color(255, 199, 7));
+		star.setFont(new Font("맑은 고딕", Font.PLAIN, 25));
+		star.setBounds(436, 356, 350, 64);
 		list_G.add(star);
-		frame2.getContentPane().setLayout(groupLayout);
+		
+		JLabel img3 = new JLabel();
+		img3.setIcon(new ImageIcon(db.path));
+		img3.setHorizontalAlignment(SwingConstants.CENTER);
+		img3.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 28));
+		img3.setBounds(0, 600, 542, 327);
+		list_G.add(img3);
+		
+		JLabel img4 = new JLabel();
+		img4.setIcon(new ImageIcon(db.path2));
+		img4.setHorizontalAlignment(SwingConstants.CENTER);
+		img4.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 28));
+		img4.setBounds(540, 600, 542, 1000);
+		list_G.add(img4);
+		JScrollPane scrollPane = new JScrollPane(list_G);
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		frame2.getContentPane().add(scrollPane, BorderLayout.CENTER);
+		frame2.getContentPane().add(title_G, BorderLayout.NORTH);
+//		frame2.getContentPane().setLayout(groupLayout);
 	}
 }
