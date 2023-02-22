@@ -55,8 +55,8 @@ public class MZ_list1 {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.WHITE);
+		JPanel title_G = new JPanel();
+		title_G.setBackground(Color.WHITE);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
@@ -64,80 +64,98 @@ public class MZ_list1 {
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 1083, GroupLayout.PREFERRED_SIZE)
+						.addComponent(title_G, GroupLayout.PREFERRED_SIZE, 1083, GroupLayout.PREFERRED_SIZE)
 						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 1084, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 195, GroupLayout.PREFERRED_SIZE)
+					.addComponent(title_G, GroupLayout.PREFERRED_SIZE, 195, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE))
 		);
-		panel.setLayout(null);
+		title_G.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("K- 푸드");
-		lblNewLabel.setForeground(new Color(0, 0, 0));
-		lblNewLabel.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 54));
-		lblNewLabel.setBounds(36, 39, 211, 101);
-		panel.add(lblNewLabel);
+		JLabel title = new JLabel("K- 푸드");
+		title.setForeground(new Color(0, 0, 0));
+		title.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 54));
+		title.setBounds(36, 39, 211, 101);
+		title_G.add(title);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(Color.WHITE);
-		scrollPane.setViewportView(panel_1);
-		panel_1.setLayout(null);
+		JPanel list_G = new JPanel();
+		list_G.setBackground(Color.WHITE);
+		scrollPane.setViewportView(list_G);
+		list_G.setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("이미지");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 28));
-		lblNewLabel_1.setBounds(0, 0, 542, 327);
-		panel_1.add(lblNewLabel_1);
+		JLabel img1 = new JLabel("이미지");
+		img1.setHorizontalAlignment(SwingConstants.CENTER);
+		img1.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 28));
+		img1.setBounds(0, 0, 542, 327);
+		list_G.add(img1);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("이미지");
-		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 28));
-		lblNewLabel_1_1.setBounds(540, 0, 542, 327);
-		panel_1.add(lblNewLabel_1_1);
+		JLabel img2 = new JLabel("이미지");
+		img2.setHorizontalAlignment(SwingConstants.CENTER);
+		img2.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 28));
+		img2.setBounds(540, 0, 542, 327);
+		list_G.add(img2);
 		
-		JLabel lblNewLabel_2 = new JLabel("리코리코");
-		lblNewLabel_2.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 45));
-		lblNewLabel_2.setBounds(0, 337, 165, 109);
-		panel_1.add(lblNewLabel_2);
+		JLabel store = new JLabel("리코리코");
+		store.setForeground(new Color(0, 0, 0));
+		store.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 45));
+		store.setBounds(0, 337, 165, 109);
+		list_G.add(store);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("별점");
-		lblNewLabel_2_1.setForeground(new Color(39, 39, 39));
-		lblNewLabel_2_1.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 30));
-		lblNewLabel_2_1.setBounds(202, 337, 78, 109);
-		panel_1.add(lblNewLabel_2_1);
+		JLabel score = new JLabel("별점");
+		score.setForeground(new Color(39, 39, 39));
+		score.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 30));
+		score.setBounds(202, 337, 78, 109);
+		list_G.add(score);
 		
-		JLabel lblNewLabel_2_1_1 = new JLabel("영업시간");
-		lblNewLabel_2_1_1.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_1.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 30));
-		lblNewLabel_2_1_1.setBounds(10, 429, 118, 109);
-		panel_1.add(lblNewLabel_2_1_1);
+		JLabel open_H = new JLabel("영업시간");
+		open_H.setForeground(new Color(0, 0, 0));
+		open_H.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 30));
+		open_H.setBounds(10, 429, 118, 109);
+		list_G.add(open_H);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setForeground(new Color(255, 198, 2));
-		comboBox.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
-		comboBox.setBackground(new Color(255,255,255));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"★★★★★","★★★★","★★★","★★","★"}));
-		comboBox.setSelectedIndex(4);
-		comboBox.setBounds(288, 378, 118, 35);
-		panel_1.add(comboBox);
+		JComboBox star = new JComboBox();
+		star.setForeground(new Color(255, 198, 2));
+		star.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
+		star.setBackground(new Color(255,255,255));
+		star.setModel(new DefaultComboBoxModel(new String[] {"★★★★★","★★★★","★★★","★★","★"}));
+		star.setSelectedIndex(4);
+		star.setBounds(288, 378, 165, 35);
+		list_G.add(star);
 		
-		JLabel lblNewLabel_2_1_1_1 = new JLabel("12:00 ~ 8:30");
-		lblNewLabel_2_1_1_1.setForeground(new Color(39, 39, 39));
-		lblNewLabel_2_1_1_1.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 20));
-		lblNewLabel_2_1_1_1.setBounds(140, 429, 118, 109);
-		panel_1.add(lblNewLabel_2_1_1_1);
+		JLabel Hour = new JLabel("12:00 ~ 8:30");
+		Hour.setForeground(new Color(39, 39, 39));
+		Hour.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 20));
+		Hour.setBounds(140, 429, 118, 109);
+		list_G.add(Hour);
 		
-		JLabel lblNewLabel_2_1_1_2 = new JLabel("리뷰");
-		lblNewLabel_2_1_1_2.setForeground(Color.BLACK);
-		lblNewLabel_2_1_1_2.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 30));
-		lblNewLabel_2_1_1_2.setBounds(292, 429, 118, 109);
-		panel_1.add(lblNewLabel_2_1_1_2);
+		JLabel reveiw = new JLabel("리뷰");
+		reveiw.setForeground(Color.BLACK);
+		reveiw.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 30));
+		reveiw.setBounds(298, 429, 78, 109);
+		list_G.add(reveiw);
+		
+		JLabel reveiw_score = new JLabel("9999+");
+		reveiw_score.setForeground(new Color(39, 39, 39));
+		reveiw_score.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 20));
+		reveiw_score.setBounds(374, 430, 118, 109);
+		list_G.add(reveiw_score);
+		
+		JLabel veiws = new JLabel("조회수");
+		veiws.setForeground(Color.BLACK);
+		veiws.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 30));
+		veiws.setBounds(504, 429, 78, 109);
+		list_G.add(veiws);
+		
+		JLabel views_score = new JLabel("9999+");
+		views_score.setForeground(new Color(39, 39, 39));
+		views_score.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 20));
+		views_score.setBounds(600, 429, 118, 109);
+		list_G.add(views_score);
 		frame.getContentPane().setLayout(groupLayout);
 		frame.setBounds(100, 100, 1101, 999);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
