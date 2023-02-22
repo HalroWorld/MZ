@@ -111,34 +111,35 @@ public class MZ_list_p2 {
 		JLabel Hour = new JLabel(db.mzList.getMzHours());
 		Hour.setForeground(new Color(39, 39, 39));
 		Hour.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 20));
-		Hour.setBounds(140, 429, 118, 109);
+		Hour.setBounds(140, 429, 256, 109);
 		list_G.add(Hour);
 		
 		JLabel reveiw = new JLabel("리뷰");
 		reveiw.setForeground(Color.BLACK);
 		reveiw.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 30));
-		reveiw.setBounds(298, 429, 78, 109);
+		reveiw.setBounds(434, 428, 78, 109);
 		list_G.add(reveiw);
 		
 		JLabel reveiw_score = new JLabel(Integer.toString(db.mzList.getMzHit()));
 		reveiw_score.setForeground(new Color(39, 39, 39));
 		reveiw_score.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 20));
-		reveiw_score.setBounds(374, 430, 118, 109);
+		reveiw_score.setBounds(510, 429, 118, 109);
 		list_G.add(reveiw_score);
 		
 		JLabel veiws = new JLabel("조회수");
 		veiws.setForeground(Color.BLACK);
 		veiws.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 30));
-		veiws.setBounds(504, 429, 78, 109);
+		veiws.setBounds(640, 428, 78, 109);
 		list_G.add(veiws);
 		
 		JLabel views_score = new JLabel(Integer.toString(db.mzList.getMzHit()));
 		views_score.setForeground(new Color(39, 39, 39));
 		views_score.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 20));
-		views_score.setBounds(600, 429, 118, 109);
+		views_score.setBounds(736, 428, 118, 109);
 		list_G.add(views_score);
 		
 		JButton btn_storeName = new JButton(db.mzList.getMzTitle());
+		btn_storeName.setForeground(new Color(0, 0, 0));
 		btn_storeName.setHorizontalAlignment(SwingConstants.LEFT);
 		btn_storeName.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 40));
 		btn_storeName.setBounds(0, 355, 350, 68);

@@ -12,11 +12,22 @@ import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.Color;
+import javax.swing.JRadioButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MZ_menu_p3 {
 
 	private JFrame frame;
-
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				new MZ_menu_p3();
+			}
+		});
+	}
+	
 	/**
 	 * Create the application.
 	 */
@@ -38,6 +49,26 @@ public class MZ_menu_p3 {
 		panel.setBackground(new Color(255, 255, 255));
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
+		
+		// 상단 홈버튼
+		JButton btn_Home = new JButton("");
+		btn_Home.setIcon(new ImageIcon(MZ_menu_p3.class.getResource("/mz/mzImg/home.png")));
+		btn_Home.setBounds(989, 10, 67, 62);
+		btn_Home.setBorderPainted(false);
+		btn_Home.setBackground(new Color (255,255,255));
+		panel.add(btn_Home);
+		
+		// 상단 뒤로가기 버튼
+		JButton btn_back = new JButton("");
+		btn_back.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btn_back.setIcon(new ImageIcon(MZ_menu_p3.class.getResource("/mz/mzImg/arrow_back.png")));
+		btn_back.setBounds(902, 10, 67, 62);
+		btn_back.setBorderPainted(false);
+		btn_back.setBackground(new Color (255,255,255));
+		panel.add(btn_back);
 		// 스크롤 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 541, 1088, 692);
@@ -99,9 +130,10 @@ public class MZ_menu_p3 {
 		
 		// 최상단 메인 사진
 		JLabel main_img = new JLabel("이미지 자리");
+		main_img.setIcon(null);
 		main_img.setBackground(new Color(255, 255, 255));
 		main_img.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 25));
-		main_img.setBounds(1, 0, 1086, 300);
+		main_img.setBounds(1, 0, 1087, 300);
 		panel.add(main_img);
 		
 		// 전화 버튼
