@@ -12,9 +12,10 @@ public class MZ_DB_Update {
      try {
       Class.forName("com.mysql.cj.jdbc.Driver");
       
-      String url = "jdbc:mysql://172.20.10.21:3306/mz";
-      String user1 = "root";
-      String passwd = "1234";
+      String url = "jdbc:mysql://222.119.100.81:3382/mz";
+      String user1 = "bong";
+      String passwd = "mz1234";
+    
     
       conn = DriverManager.getConnection(url, user1, passwd);
       
