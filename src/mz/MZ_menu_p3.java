@@ -61,6 +61,7 @@ public class MZ_menu_p3 {
 		btn_Home.setBackground(new Color (255,255,255));
 		panel.add(btn_Home);
 		
+		// 첫페이지로 이동
 		btn_Home.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -84,6 +85,7 @@ public class MZ_menu_p3 {
 		btn_back.setBackground(new Color (255,255,255));
 		panel.add(btn_back);
 		
+		// 직전 페이지로 이동
 		btn_back.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
