@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 
-public class MZ_list2 {
+public class MZ_menu_p3 {
 
 	private JFrame frame;
 
@@ -24,7 +24,7 @@ public class MZ_list2 {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MZ_list2 window = new MZ_list2();
+					MZ_menu_p3 window = new MZ_menu_p3();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +36,7 @@ public class MZ_list2 {
 	/**
 	 * Create the application.
 	 */
-	public MZ_list2() {
+	public MZ_menu_p3() {
 		initialize();
 	}
 
@@ -121,7 +121,7 @@ public class MZ_list2 {
 		
 		// 전화 버튼
 		JButton btn_call = new JButton("");
-		btn_call.setIcon(new ImageIcon(MZ_list2.class.getResource("/mz/mzImg/call.png")));
+		btn_call.setIcon(new ImageIcon(MZ_menu_p3.class.getResource("/mz/mzImg/call.png")));
 		btn_call.setBounds(29, 375, 46, 46);
 		btn_call.setBorderPainted(false);
 		btn_call.setBackground(new Color (255,255,255));
@@ -129,7 +129,7 @@ public class MZ_list2 {
 		
 		// 지도 버튼
 		JButton btn_lo = new JButton("");
-		btn_lo.setIcon(new ImageIcon(MZ_list2.class.getResource("/mz/mzImg/location1.png")));
+		btn_lo.setIcon(new ImageIcon(MZ_menu_p3.class.getResource("/mz/mzImg/location1.png")));
 		btn_lo.setBounds(82, 375, 46, 46);
 		btn_lo.setBorderPainted(false);
 		btn_lo.setBackground(new Color (255,255,255));
@@ -138,8 +138,8 @@ public class MZ_list2 {
 		
 		// 좋아요 버튼
 		JButton btn_like = new JButton("");
-		btn_like.setIcon(new ImageIcon(MZ_list2.class.getResource("/mz/mzImg/favorite1.png")));
-		btn_like.setPressedIcon(new ImageIcon(MZ_list2.class.getResource("/mz/mzImg/favorite2.png")));
+		btn_like.setIcon(new ImageIcon(MZ_menu_p3.class.getResource("/mz/mzImg/favorite1.png")));
+		btn_like.setPressedIcon(new ImageIcon(MZ_menu_p3.class.getResource("/mz/mzImg/favorite2.png")));
 		btn_like.setBounds(136, 375, 46,46);
 		btn_like.setBorderPainted(false);
 		btn_like.setBackground(new Color (255,255,255));
