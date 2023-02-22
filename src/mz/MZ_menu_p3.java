@@ -18,32 +18,17 @@ public class MZ_menu_p3 {
 	private JFrame frame;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MZ_menu_p3 window = new MZ_menu_p3();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
 	 */
 	public MZ_menu_p3() {
-		initialize();
+		menu_P3();
+		frame.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void menu_P3() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1102, 1270);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -133,7 +118,6 @@ public class MZ_menu_p3 {
 		btn_lo.setBounds(82, 375, 46, 46);
 		btn_lo.setBorderPainted(false);
 		btn_lo.setBackground(new Color (255,255,255));
-		
 		panel.add(btn_lo);
 		
 		// 좋아요 버튼
