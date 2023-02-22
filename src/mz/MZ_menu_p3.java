@@ -54,15 +54,26 @@ public class MZ_menu_p3 {
 		panel.setLayout(null);
 		
 		// 상단 홈버튼
-		JButton btn_Home = new JButton("");
+		JButton btn_Home = new JButton("home");
 		btn_Home.setIcon(new ImageIcon(MZ_menu_p3.class.getResource("/mz/mzImg/home.png")));
 		btn_Home.setBounds(989, 10, 67, 62);
 		btn_Home.setBorderPainted(false);
 		btn_Home.setBackground(new Color (255,255,255));
 		panel.add(btn_Home);
 		
+		btn_Home.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+                if(btn_Home.getText().equals("home")){
+//                    MZ_menu_p3.MZ_menu_p3();  
+                    new MZ_home_p1();
+					frame3.setVisible(false);
+                }
+			}
+		});
+		
 		// 상단 뒤로가기 버튼
-		JButton btn_back = new JButton("");
+		JButton btn_back = new JButton("back");
 		btn_back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -72,6 +83,17 @@ public class MZ_menu_p3 {
 		btn_back.setBorderPainted(false);
 		btn_back.setBackground(new Color (255,255,255));
 		panel.add(btn_back);
+		
+		btn_back.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+                if(btn_back.getText().equals("back")){
+//                    MZ_menu_p3.MZ_menu_p3();  
+                    new MZ_list_p2();
+					frame3.setVisible(false);
+                }
+			}
+		});
 		
 		// 스크롤 
 		JScrollPane scrollPane = new JScrollPane();

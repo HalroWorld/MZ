@@ -183,6 +183,17 @@ public class MZ_list_p2 {
 		btn_More.setBackground(new Color (255,255,255));
 		list_G.add(btn_More);
 		
+		btn_More.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+                if(btn_More.getText().equals("더보기")){
+//                    MZ_menu_p3.MZ_menu_p3();  
+                    MZ_menu_p3.main(null);
+					frame2.setVisible(false);
+                }
+			}
+		});
+		
 		JLabel lblNewLabel = new JLabel("주소");
 		lblNewLabel.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 30));
 		lblNewLabel.setBounds(12, 548, 71, 52);
