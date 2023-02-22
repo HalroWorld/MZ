@@ -60,8 +60,8 @@ public class Mz_board extends JFrame {
 //						txtUser.setText(user);
 //						txtDate.setText(date.toString());
 //						txtViews.setText(views.toString());
-						Mz_read jDialog = new Mz_read(Mz_board.this);
-						jDialog.setVisible(true);
+//						Mz_read jDialog = new Mz_read(Mz_board.this);
+//						jDialog.setVisible(true);
 						
 //					}
 				}

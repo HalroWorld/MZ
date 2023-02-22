@@ -41,9 +41,8 @@ public class MZ_home_p1 {
 			btn_K.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					MZ_list_p2 mylist = new MZ_list_p2();
-					mylist.frame.setVisible(true);
-					frame.dispose();
+					new MZ_list_p2();
+					frame.setVisible(false);
 				}
 			});
 		}

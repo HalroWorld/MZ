@@ -1,12 +1,15 @@
 package mz;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,32 +17,36 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
 
 public class MZ_list_p2 {
 
-	public JFrame frame;
-
-
+	private JPanel title_G = new JPanel();
+	private JFrame frame2;
 	
 	public MZ_list_p2() {
 		list_P2();
-		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);
+		frame2.setTitle("맛-ZIP");
+		frame2.setResizable(false);
+		frame2.setVisible(true);
+		frame2.setBounds(100, 100, 1101, 999);
+		frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame2.setLocationRelativeTo(null);
 	}
 
 	
 	private void list_P2() {
-		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(255, 255, 255));
+		frame2 = new JFrame();
+		frame2.getContentPane().setBackground(new Color(255, 255, 255));
+		frame2.setIconImage(new ImageIcon("src/mz/mzImg/mzduck.png").getImage());
+
 		MZ_DB db = new MZ_DB();
 		db.select();
-		JPanel title_G = new JPanel();
+		
+		title_G = new JPanel();
 		title_G.setBackground(Color.WHITE);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
+		GroupLayout groupLayout = new GroupLayout(frame2.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
@@ -63,12 +70,23 @@ public class MZ_list_p2 {
 		title.setBounds(36, 39, 211, 101);
 		title_G.add(title);
 		
-		JButton btn_home = new JButton("");
+		// 텍스트 변경 안되고 이미지 수정 필요
+		JButton btn_home = new JButton("home");
 		btn_home.setIcon(new ImageIcon(MZ_list_p2.class.getResource("/mz/mzImg/home.png")));
 		btn_home.setBounds(928, 60, 67, 62);
 		btn_home.setBorderPainted(false);
 		btn_home.setBackground(new Color (255,255,255));
 		title_G.add(btn_home);
+
+		btn_home.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+                if(btn_home.getText().equals("home")){
+                    new MZ_home_p1();
+					frame2.setVisible(false);
+                }
+			}
+		});
 		
 		JPanel list_G = new JPanel();
 		list_G.setBackground(Color.WHITE);
@@ -147,6 +165,17 @@ public class MZ_list_p2 {
 		btn_storeName.setBackground(new Color (255,255,255));
 		list_G.add(btn_storeName);
 		
+		btn_storeName.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+                if(btn_storeName.getText().equals(db.mzList.getMzTitle())){
+//                    MZ_menu_p3.MZ_menu_p3();  
+                    MZ_menu_p3.main(null);
+					frame2.setVisible(false);
+                }
+			}
+		});
+		
 		JButton btn_More = new JButton("더보기");
 		btn_More.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 20));
 		btn_More.setBounds(790, 358, 147, 62);
@@ -159,13 +188,11 @@ public class MZ_list_p2 {
 		lblNewLabel.setBounds(12, 548, 71, 52);
 		list_G.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel(db.mzList.getMzAddr() );
+		JLabel lblNewLabel_1 = new JLabel(db.mzList.getMzAddr());
 		lblNewLabel_1.setForeground(new Color(70, 70, 70));
 		lblNewLabel_1.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		lblNewLabel_1.setBounds(83, 548, 701, 52);
 		list_G.add(lblNewLabel_1);
-		frame.getContentPane().setLayout(groupLayout);
-		frame.setBounds(100, 100, 1101, 999);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame2.getContentPane().setLayout(groupLayout);
 	}
 }

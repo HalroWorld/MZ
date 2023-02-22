@@ -24,7 +24,7 @@ public class MZ_DB {
       String sql = "" +
           "SELECT mz_uid, mz_title, mz_star, mz_hours, mz_hit, mz_addr " +
           "FROM mz_tbl " +
-          "WHERE mz_uid =2 ";
+          "WHERE mz_uid =1 ";
       Statement st = conn.createStatement();
       ResultSet rs = st.executeQuery(sql);   // 쿼리 실행후 결과 값을 resultset에 담아 두기
       

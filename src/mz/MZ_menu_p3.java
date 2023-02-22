@@ -1,24 +1,23 @@
 package mz;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
-import java.awt.Color;
-import javax.swing.JRadioButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class MZ_menu_p3 {
 
-	private JFrame frame;
+	private static JFrame frame3;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -33,21 +32,25 @@ public class MZ_menu_p3 {
 	 */
 	public MZ_menu_p3() {
 		menu_P3();
-		frame.setVisible(true);
+		frame3.setBounds(100, 100, 1102, 1270);
+		frame3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
+		frame3.setVisible(true);
+		frame3.setLocationRelativeTo(null);		
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void menu_P3() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 1102, 1270);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new BorderLayout(0, 0));
+		MZ_DB db = new MZ_DB();
+		db.select();
+		
+		frame3 = new JFrame();
+		frame3.getContentPane().setLayout(new BorderLayout(0, 0));
 		//전체적인 묶음용 패널임 신경 ㄴㄴ
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
-		frame.getContentPane().add(panel, BorderLayout.CENTER);
+		frame3.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
 		// 상단 홈버튼
@@ -69,6 +72,7 @@ public class MZ_menu_p3 {
 		btn_back.setBorderPainted(false);
 		btn_back.setBackground(new Color (255,255,255));
 		panel.add(btn_back);
+		
 		// 스크롤 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 541, 1088, 692);
@@ -123,9 +127,9 @@ public class MZ_menu_p3 {
 		panel_1.add(sub_img_2);
 		
 		// 가게 이름 (리스트3 페이지 타이틀)
-		JLabel store_Name = new JLabel("리코리코");
+		JLabel store_Name = new JLabel(db.mzList.getMzTitle());
 		store_Name.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 54));
-		store_Name.setBounds(29, 291, 205, 79);
+		store_Name.setBounds(29, 291, 500, 79);
 		panel.add(store_Name);
 		
 		// 최상단 메인 사진
