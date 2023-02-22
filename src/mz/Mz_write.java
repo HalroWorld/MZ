@@ -1,5 +1,6 @@
 package mz;
 
+
 import java.sql.*;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -15,16 +16,24 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+
 public class Mz_write extends JDialog{
 
 	final JPanel contentPanel = new JPanel();
 	JTextField txtTitle;
 	JTextField txtUser;
 
+
 	/**
 	 * Launch the application.
 	 */
+	
+	
+	
 	public static void main(String[] args) {
+		
+						
+		
 		try {
 			Mz_write dialog = new Mz_write(null);
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -79,13 +88,9 @@ public class Mz_write extends JDialog{
 			{
 				JButton okButton = new JButton("저장");
 				okButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {						
+					public void actionPerformed(ActionEvent e) {												
 						
-//						Object[] rowData = { txtTitle.getText(), txtUser.getText(), txtContent.getText() };
-//						DefaultTableModel tableModel = new DefaultTableModel(rowData, 3);
-						
-						
-						
+					
 						String ipTitle = txtTitle.getText();
 						String ipUser = txtUser.getText();
 						String ipContent= txtContent.getText();
@@ -99,9 +104,43 @@ public class Mz_write extends JDialog{
 						txtUser.setText("");
 						txtContent.setText("");
 						
+						System.out.println(Mz_data.InputTitle);
+						System.out.println(Mz_data.InputUser);
+						System.out.println(Mz_data.InputContent);
 						
+						Connection conn = null;
 						
-						
+						try {
+							Class.forName("com.mysql.cj.jdbc.Driver");
+							
+							conn = DriverManager.getConnection(
+								"jdbc:mysql://127.0.0.1:3306/board",
+								"root",
+								"1234"
+							);
+							
+							String sql = "" +
+									"INSERT INTO board_tbl(user_name, board_title,board_date, board_post )"
+									+ " values(?, ?, now(), ? )";
+							PreparedStatement pstmt = conn.prepareStatement(sql);
+							pstmt.setString(1, Mz_data.InputUser);
+							pstmt.setString(2, Mz_data.InputTitle);			
+							pstmt.setString(3, Mz_data.InputContent);
+							
+							
+							pstmt.executeUpdate();
+							
+							pstmt.close();		
+							
+						} catch (Exception e1) {
+							e1.printStackTrace();			
+						} finally {
+							if(conn != null) {
+								try {
+									conn.close();
+								} catch (SQLException e1) {}
+							}
+						}
 						
 						
 					} 
