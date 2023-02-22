@@ -159,11 +159,26 @@ public class MZ_menu_p3 {
 		// 좋아요 버튼
 		JButton btn_like = new JButton("");
 		btn_like.setIcon(new ImageIcon(MZ_menu_p3.class.getResource("/mz/mzImg/favorite1.png")));
-		btn_like.setPressedIcon(new ImageIcon(MZ_menu_p3.class.getResource("/mz/mzImg/favorite2.png")));
+//		btn_like.setPressedIcon(new ImageIcon(MZ_menu_p3.class.getResource("/mz/mzImg/favorite2.png")));
 		btn_like.setBounds(136, 375, 46,46);
 		btn_like.setBorderPainted(false);
 		btn_like.setBackground(new Color (255,255,255));
+
+		
+		btn_like.addActionListener(new ActionListener() {
+			int count = 0;
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				count++;
+				if(count % 2 == 1) {
+					btn_like.setIcon(new ImageIcon(MZ_menu_p3.class.getResource("/mz/mzImg/favorite2.png")));					
+				} else {
+					btn_like.setIcon(new ImageIcon(MZ_menu_p3.class.getResource("/mz/mzImg/favorite1.png")));
+				}
+			}
+		});
 		panel.add(btn_like);
+		
 		
 		// 리뷰 버튼
 		JButton btn_review = new JButton("리뷰");
