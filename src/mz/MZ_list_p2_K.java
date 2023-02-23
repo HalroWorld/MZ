@@ -23,6 +23,8 @@ public class MZ_list_p2_K {
 	// 패널, 프레임 변수 생성
 	private JPanel title_G = new JPanel();
 	private JFrame frame2;
+	public static String str = "k";
+	public static int num = 0;
 	
 	// MZ_list_p2_K 생성자에서 list_P2 메소드 호출
 	public MZ_list_p2_K() {
@@ -39,7 +41,6 @@ public class MZ_list_p2_K {
 		frame2.setLocationRelativeTo(null);
 	}
 
-	
 	// list_P2 메서드 생성
 	private void list_P2() {
 		
@@ -49,11 +50,8 @@ public class MZ_list_p2_K {
 		frame2.getContentPane().setBackground(new Color(255, 255, 255));
 		frame2.setIconImage(new ImageIcon("src/mz/mzImg/mzduck.png").getImage());
 
-		
 		// DB와 연결 위해 불러오기
 		MZ_DB db = new MZ_DB();
-		
-		
 		db.select("k", 1);
 		
 		// 패널 title_G 호출(사이즈 및 위치 조정, 프레임에 추가)
@@ -64,6 +62,7 @@ public class MZ_list_p2_K {
 		
 		// title 라벨 생성(K-푸드 위치 조정, 폰트 변경, 패널에 추가)
 		JLabel title = new JLabel("K- 푸드");
+	
 		title.setHorizontalAlignment(SwingConstants.LEFT);
 		title.setForeground(new Color(0, 0, 0));
 		title.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 99));
@@ -97,7 +96,7 @@ public class MZ_list_p2_K {
 		
 		
 		// 반복문 1
-			db.select("k", 1);
+			db.select(str, 1);
 			int b = 650 * 0;
 			JLabel img1 = new JLabel();
 			img1.setIcon(new ImageIcon(db.path[0]));
@@ -168,8 +167,9 @@ public class MZ_list_p2_K {
 				public void actionPerformed(ActionEvent e) {
 //					if(btn_storeName.getText().equals(db.mzList.getMzTitle())){
 ////                    MZ_menu_p3.MZ_menu_p3();
+					num=1;
 						MZ_DB_Update up = new MZ_DB_Update();
-						up.update("update mz_tbl set mz_hit=(mz_hit+1)");
+						up.update("update k_mz_tbl set mz_hit=(mz_hit+1) where mz_uid = "+ num + ";");
 						MZ_menu_p3.main(null);
 						frame2.setVisible(false);
 //					}
@@ -189,7 +189,8 @@ public class MZ_list_p2_K {
 //					if(btn_More.getText().equals("더보기")){
 //                    MZ_menu_p3.MZ_menu_p3();
 						MZ_DB_Update up = new MZ_DB_Update();
-						up.update("update mz_tbl set mz_hit=(mz_hit+1)");
+						num=1;
+						up.update("update k_mz_tbl set mz_hit=(mz_hit+1) where mz_uid = "+ num + ";");
 						MZ_menu_p3.main(null);
 						frame2.setVisible(false);
 //					}
@@ -255,7 +256,7 @@ public class MZ_list_p2_K {
 			
 			
 			// 반복문 2
-			db.select("k", 2);
+			db.select(str, 2);
 			b = 650 * 1;
 			img1 = new JLabel();
 			img1.setIcon(new ImageIcon(db.path[0]));
@@ -327,7 +328,9 @@ public class MZ_list_p2_K {
 //					if(btn_storeName.getText().equals(db.mzList.getMzTitle())){
 ////                    MZ_menu_p3.MZ_menu_p3();
 						MZ_DB_Update up = new MZ_DB_Update();
-						up.update("update mz_tbl set mz_hit=(mz_hit+1)");
+						num=2;
+						up.update("update k_mz_tbl set mz_hit=(mz_hit+1) where mz_uid = "+ num + ";");
+						
 						MZ_menu_p3.main(null);
 						frame2.setVisible(false);
 //					}
@@ -347,7 +350,9 @@ public class MZ_list_p2_K {
 //					if(btn_More.getText().equals("더보기")){
 //                    MZ_menu_p3.MZ_menu_p3();
 						MZ_DB_Update up = new MZ_DB_Update();
-						up.update("update mz_tbl set mz_hit=(mz_hit+1)");
+						num=2;
+						up.update("update k_mz_tbl set mz_hit=(mz_hit+1) where mz_uid = "+ num + ";");
+						
 						MZ_menu_p3.main(null);
 						frame2.setVisible(false);
 //					}
@@ -414,7 +419,7 @@ public class MZ_list_p2_K {
 			
 			
 			// 반복문 3
-			db.select("k", 3);
+			db.select(str, 3);
 			b = 650 * 2;
 			img1 = new JLabel();
 			img1.setIcon(new ImageIcon(db.path[0]));
@@ -486,7 +491,9 @@ public class MZ_list_p2_K {
 //					if(btn_storeName.getText().equals(db.mzList.getMzTitle())){
 ////                    MZ_menu_p3.MZ_menu_p3();
 						MZ_DB_Update up = new MZ_DB_Update();
-						up.update("update mz_tbl set mz_hit=(mz_hit+1)");
+						num=3;
+						up.update("update k_mz_tbl set mz_hit=(mz_hit+1) where mz_uid = "+ num + ";");
+						
 						MZ_menu_p3.main(null);
 						frame2.setVisible(false);
 //					}
@@ -506,7 +513,9 @@ public class MZ_list_p2_K {
 //					if(btn_More.getText().equals("더보기")){
 //                    MZ_menu_p3.MZ_menu_p3();
 						MZ_DB_Update up = new MZ_DB_Update();
-						up.update("update mz_tbl set mz_hit=(mz_hit+1)");
+						num=3;
+						up.update("update k_mz_tbl set mz_hit=(mz_hit+1) where mz_uid = "+ num + ";");
+					
 						MZ_menu_p3.main(null);
 						frame2.setVisible(false);
 //					}
@@ -570,13 +579,13 @@ public class MZ_list_p2_K {
 			star2.setBounds(436, 356 + b, 350, 64);
 			list_G.add(star2);
 			
-		// 스크롤 생성
+	
+		
 		int v = ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS;
       	int h = ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
       	JScrollPane scrollPane = new JScrollPane(list_G, v, h);
       	scrollPane.getVerticalScrollBar().setUnitIncrement(16);
       	
-      	// 프레임에 스크롤 추가 및 title_G 추가
 		frame2.getContentPane().add(scrollPane, BorderLayout.CENTER);
 		frame2.getContentPane().add(title_G, BorderLayout.NORTH);
 //		frame2.getContentPane().setLayout(groupLayout);

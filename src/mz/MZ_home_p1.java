@@ -15,50 +15,45 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class MZ_home_p1 {
-	// 패널, 프레임, 버튼, 텍스트 필드 변수 생성
+//패널, 프레임, 버튼, 텍스트 필드 변수 생성
 	private JPanel menu_G = new JPanel();
 	private JFrame frame;
 	private JButton btn_K, btn_C, btn_F, btn_AZ, btn_J, btn_D;
 	private JTextField search;
 
-	// MZ_home_p1 생성자에서 main_P1 메소드 호출
+//MZ_home_p1 생성자에서 main_P1 메소드 호출
 	public MZ_home_p1() {
 		main_P1();
-		
-		// 기본 프레임 셋팅(제목, 프레임 사이즈, 닫기 버튼)
 		frame.setTitle("맛-ZIP");
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1102, 999);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		// 패널에 버튼 메서드 6개 추가(버튼 눌렀을 때 넘어감)
+	// 패널에 버튼 메서드 6개 추가(버튼 눌렀을 때 넘어감)
 		menu_G.add(getbtn_K());
 		menu_G.add(getbtn_C());
 		menu_G.add(getbtn_F());
 		menu_G.add(getbtn_AZ());
 		menu_G.add(getbtn_J());
 		menu_G.add(getbtn_D());
-		
-		// frame 띄우기
+	// frame 띄우기
 		frame.setVisible(true);
-		
-		// frame 창 띄우자마자 센터로 옮김
+	// frame 창 띄우자마자 센터로 옮김
 		frame.setLocationRelativeTo(null);
 	}
-	
-	// K-FOOD 버튼 클릭시 다음 페이지 호출
+//K-FOOD 버튼 클릭시 다음 페이지 호출
 	public JButton getbtn_K() {
 		if(btn_K == null) {
-			// K-FOOD 버튼 생성(이미지 추가, 컬러 추가, 사이즈 및 위치 조정)
+		// K-FOOD 버튼 생성(이미지 추가, 컬러 추가, 사이즈 및 위치 조정)
 			btn_K = new JButton("");
 			btn_K.setBackground(Color.WHITE);
 			btn_K.setIcon(new ImageIcon(MZ_home_p1.class.getResource("/mz/mzImg/k.png")));
 			btn_K.setBounds(44, 138, 275, 168);
 			
-			// 버튼 활성화 테두리 없애기
+		// 버튼 활성화 테두리 없애기
 			btn_K.setBorderPainted(false);
 			
-			// 버튼 클릭시 2페이지 나오기(MZ_list_p2_K 생성자 호출) 및 현재 창 숨기기
+		// 버튼 클릭시 2페이지 나오기(MZ_list_p2_K 생성자 호출) 및 현재 창 숨기기
 			btn_K.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
@@ -69,19 +64,16 @@ public class MZ_home_p1 {
 		}
 		return btn_K;
 	}
-	
-	// 중식 버튼 클릭시 다음 페이지 호출
+//중식 버튼 클릭시 다음 페이지 호출
 	public JButton getbtn_C() {
 		if(btn_C == null) {
-			// 중식 버튼 생성(이미지 추가, 컬러 추가, 사이즈 및 위치 조정)
+		// 중식 버튼 생성(이미지 추가, 컬러 추가, 사이즈 및 위치 조정)
 			btn_C = new JButton();
 			btn_C.setBackground(Color.WHITE);
 			btn_C.setIcon(new ImageIcon(MZ_home_p1.class.getResource("/mz/mzImg/c.png")));
 			btn_C.setBounds(398, 140, 275, 168);
-			
-			// 버튼 활성화 테두리 없애기
-			btn_C.setBorderPainted(false);
-			
+		// 버튼 활성화 테두리 없애기
+			btn_C.setBorderPainted(false);	
 			// 버튼 클릭시 2페이지 나오기(MZ_list_p2_C 생성자 호출) 및 현재 창 숨기기
 			btn_C.addActionListener(new ActionListener() {
 				@Override
@@ -93,7 +85,6 @@ public class MZ_home_p1 {
 		}
 		return btn_C;
 	}
-	
 	// 양식 버튼 클릭시 다음 페이지 호출
 	public JButton getbtn_F() {
 		if(btn_F == null) {
@@ -104,8 +95,7 @@ public class MZ_home_p1 {
 			btn_F.setBounds(749, 138, 277, 168);
 			
 			// 버튼 활성화 테두리 없애기
-			btn_F.setBorderPainted(false);
-			
+			btn_F.setBorderPainted(false);		
 			// 버튼 클릭시 2페이지 나오기(MZ_list_p2_F 생성자 호출) 및 현재 창 숨기기
 			btn_F.addActionListener(new ActionListener() {
 				@Override
@@ -117,7 +107,6 @@ public class MZ_home_p1 {
 		}
 		return btn_F;
 	}
-	
 	// A-Z 버튼 클릭시 다음 페이지 호출
 	public JButton getbtn_AZ() {
 		if(btn_AZ == null) {
@@ -126,10 +115,9 @@ public class MZ_home_p1 {
 			btn_AZ.setBackground(Color.WHITE);
 			btn_AZ.setIcon(new ImageIcon(MZ_home_p1.class.getResource("/mz/mzImg/a.png")));
 			btn_AZ.setBounds(44, 351, 275, 168);
-			
 			// 버튼 활성화 테두리 없애기
-			btn_AZ.setBorderPainted(false);	
 			
+			btn_AZ.setBorderPainted(false);		
 			// 버튼 클릭시 2페이지 나오기(MZ_list_p2_AZ 생성자 호출) 및 현재 창 숨기기
 			btn_AZ.addActionListener(new ActionListener() {
 				@Override
@@ -141,7 +129,6 @@ public class MZ_home_p1 {
 		}
 		return btn_AZ;
 	}
-	
 	// 일식 버튼 클릭시 다음 페이지 호출
 	public JButton getbtn_J() {
 		if(btn_J == null) {
@@ -152,8 +139,7 @@ public class MZ_home_p1 {
 			btn_J.setBounds(398, 353, 275, 168);
 			
 			// 버튼 활성화 테두리 없애기
-			btn_J.setBorderPainted(false);
-
+			btn_J.setBorderPainted(false);		
 			// 버튼 클릭시 2페이지 나오기(MZ_list_p2_J 생성자 호출) 및 현재 창 숨기기
 			btn_J.addActionListener(new ActionListener() {
 				@Override
@@ -165,7 +151,6 @@ public class MZ_home_p1 {
 		}
 		return btn_J;
 	}
-	
 	// 디저트 버튼 클릭시 다음 페이지 호출
 	public JButton getbtn_D() {
 		if(btn_D == null) {
@@ -176,8 +161,7 @@ public class MZ_home_p1 {
 			btn_D.setBounds(749, 351, 277, 168);
 			
 			// 버튼 활성화 테두리 없애기
-			btn_D.setBorderPainted(false);			
-			
+			btn_D.setBorderPainted(false);
 			// 버튼 클릭시 2페이지 나오기(MZ_list_p2_D 생성자 호출) 및 현재 창 숨기기
 			btn_D.addActionListener(new ActionListener() {
 				@Override
@@ -189,10 +173,8 @@ public class MZ_home_p1 {
 		}
 		return btn_D;
 	}
-
 	// main_P1 메소드 형성
 	public void main_P1() {
-		
 		// 프레임 호출(이미지 추가, 컬러 추가, 사이즈 및 위치 조정)
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
@@ -216,9 +198,8 @@ public class MZ_home_p1 {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 186, 1085, 776);
 		frame.getContentPane().add(scrollPane);
-		
 		// 패널 menu_G 호출(사이즈 및 위치 조정, 프레임에 추가)
-//		JPanel menu_G = new JPanel();
+
 		menu_G.setBackground(new Color(255, 255, 255));
 		scrollPane.setViewportView(menu_G);
 		menu_G.setLayout(null);
@@ -231,14 +212,14 @@ public class MZ_home_p1 {
 		search.setBounds(45, 27, 879, 48);
 		menu_G.add(search);
 		
-		// 검색 버튼 생성(사이즈 및 위치 조정, 패널에 추가, 이미지 적용)
+	// 검색 버튼 생성(사이즈 및 위치 조정, 패널에 추가, 이미지 적용)
 		JButton button = new JButton("");
 		button.setIcon(new ImageIcon(MZ_home_p1.class.getResource("/mz/mzImg/se.png")));
 		button.setBackground(Color.WHITE);
 		button.setBounds(931, 26, 95, 49);
 		menu_G.add(button);
 		
-		// QNA 버튼 생성(사이즈 및 위치 조정, 패널에 추가, 이미지 적용)
+	// QNA 버튼 생성(사이즈 및 위치 조정, 패널에 추가, 이미지 적용)
 		JButton btn_QNA = new JButton("Q&A");
 		btn_QNA.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 30));
 		btn_QNA.setBackground(Color.WHITE);
