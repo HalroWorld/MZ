@@ -196,6 +196,7 @@ public class MZ_menu_p3 {
 		panel_1.setPreferredSize(new Dimension(1000, 500));
 		scrollPane.setViewportView(panel_1);
 		panel_1.setLayout(null);
+		
 		MZ_DB2 db2 = new MZ_DB2();
 		db2.select2(MZ_tbl.str, MZ_tbl.num);
 		

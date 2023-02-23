@@ -57,6 +57,7 @@ public class MZ_DB2 {
       			
        
       }else {
+      	System.out.println(MZ_tbl.num);
      	 System.out.println("사용자 아이디가 존재하지 않음");
       }
       rs.close();
