@@ -244,6 +244,7 @@ public class MZ_list_p2_D {
 		int v = ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS;
       	int h = ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
       	JScrollPane scrollPane = new JScrollPane(list_G, v, h);
+      	scrollPane.getVerticalScrollBar().setUnitIncrement(16);
       	
 		frame2.getContentPane().add(scrollPane, BorderLayout.CENTER);
 		frame2.getContentPane().add(title_G, BorderLayout.NORTH);

@@ -46,15 +46,15 @@ public class MZ_menu_p3 {
 		frame3 = new JFrame();
 		frame3.getContentPane().setLayout(new BorderLayout(0, 0));
 		frame3.setIconImage(new ImageIcon("src/mz/mzImg/mzduck.png").getImage());
-		frame3.setTitle("맛-ZIP");		
-		
+		frame3.setTitle("맛-ZIP");
+
 		//전체적인 묶음용 패널임 신경 ㄴㄴ
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
 		frame3.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		panel.setPreferredSize(new Dimension(1000, 600));
-		
+
 		
 		// 상단 홈버튼
 		JButton btn_Home = new JButton("home");
@@ -161,7 +161,7 @@ public class MZ_menu_p3 {
 		btn_review.setBackground(new Color (255,255,255));
 		panel.add(btn_review);
 		
-		String[] stars = {"★★★★★","★★★★","★★★","★★","★"};
+		String[] stars = {"★","★★","★★★","★★★★","★★★★★"};
 		
 		JComboBox score = new JComboBox(stars);
 		score.setForeground(new Color(255, 199, 7));
@@ -225,6 +225,7 @@ public class MZ_menu_p3 {
 		int v = ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS;
       	int h = ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
       	JScrollPane scrollPane3 = new JScrollPane(panel_1, v, h);
+      	scrollPane3.getVerticalScrollBar().setUnitIncrement(16);	
       	frame3.getContentPane().add(panel, BorderLayout.NORTH);
 		frame3.getContentPane().add(scrollPane3, BorderLayout.CENTER);
 	}
