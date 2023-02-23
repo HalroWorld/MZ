@@ -210,6 +210,32 @@ public class MZ_home_p1 {
 		search.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		search.setColumns(10);
 		search.setBounds(45, 27, 879, 48);
+		search.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String data = search.getText(); 
+        if(data.equals("한식")){
+        	MZ_tbl.str = "k";
+				MZ_tbl.num = 1;
+        }else if(data.equals("중식")) {
+        	MZ_tbl.str = "c";
+        }else if(data.equals("양식")) {
+        	MZ_tbl.str = "f";
+        }else if(data.equals("일식")) {
+        	MZ_tbl.str = "j";
+        }else if(data.equals("디저트")) {
+        	MZ_tbl.str = "d";
+        }else if(data.equals("간식")) {
+        	MZ_tbl.str = "d";
+        }else if(data.equals("아재")) {
+        	MZ_tbl.str = "az";
+        }
+        
+	
+            new MZ_search();
+					frame.setVisible(false);
+                }
+		});
 		menu_G.add(search);
 		
 	// 검색 버튼 생성(사이즈 및 위치 조정, 패널에 추가, 이미지 적용)
@@ -217,6 +243,30 @@ public class MZ_home_p1 {
 		button.setIcon(new ImageIcon(MZ_home_p1.class.getResource("/mz/mzImg/se.png")));
 		button.setBackground(Color.WHITE);
 		button.setBounds(931, 26, 95, 49);
+		button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String data = search.getText(); 
+        if(data.equals("한식")){
+        	MZ_tbl.str = "k";
+				MZ_tbl.num = 1;
+        }else if(data.equals("중식")) {
+        	MZ_tbl.str = "c";
+        }else if(data.equals("양식")) {
+        	MZ_tbl.str = "f";
+        }else if(data.equals("일식")) {
+        	MZ_tbl.str = "j";
+        }else if(data.equals("디저트")) {
+        	MZ_tbl.str = "d";
+        }else if(data.equals("간식")) {
+        	MZ_tbl.str = "d";
+        }else if(data.equals("아재")) {
+        	MZ_tbl.str = "az";
+        }
+               new MZ_search();
+					frame.setVisible(false);
+                }
+		});
 		menu_G.add(button);
 		
 	// QNA 버튼 생성(사이즈 및 위치 조정, 패널에 추가, 이미지 적용)
