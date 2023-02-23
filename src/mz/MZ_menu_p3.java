@@ -191,7 +191,7 @@ public class MZ_menu_p3 {
 		// 스크롤 안에 부속재료들 묶음용
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 255, 255));
-		panel_1.setPreferredSize(new Dimension(1000, 3000));
+		panel_1.setPreferredSize(new Dimension(1000, 500));
 		scrollPane.setViewportView(panel_1);
 		panel_1.setLayout(null);
 		MZ_DB2 db2 = new MZ_DB2();
@@ -200,14 +200,12 @@ public class MZ_menu_p3 {
 		for(int i=0; i<2 ;i++) {
 			int b = 300*i;
 			// 메뉴 이름
-			
-			
 
 			JButton btn_menu = new JButton(db2.menu[i]);
 						
 			btn_menu.setHorizontalAlignment(SwingConstants.LEFT);
 			btn_menu.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 35));
-			btn_menu.setBounds(33, 91 + b, 359, 63);
+			btn_menu.setBounds(33, 50 + b, 359, 63);
 			btn_menu.setBorderPainted(false);
 			btn_menu.setBackground(new Color (255,255,255));
 			panel_1.add(btn_menu);
@@ -215,20 +213,20 @@ public class MZ_menu_p3 {
 			// 메뉴 설명
 			JLabel explanation = new JLabel(db2.text[i]);
 			explanation.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 16));
-			explanation.setBounds(33, 152 + b, 322, 63);
+			explanation.setBounds(45, 130 + b, 322, 63);
 			panel_1.add(explanation);
 			
 			// 음식사진
 			JLabel sub_img = new JLabel();
 			sub_img.setIcon(new ImageIcon(db.path[i]));
 			sub_img.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 26));
-			sub_img.setBounds(487, 91 + b, 562, 219);
+			sub_img.setBounds(487, 50 + b, 562, 219);
 			panel_1.add(sub_img);
 			
 			JLabel line 
 			= new JLabel("-------------------------------------------------------------------------------------------------------------------------------------------");
 			line.setFont(new Font("맑은 고딕", Font.BOLD, 20));
-			line.setBounds(0, 230 + b, 1200, 100);
+			line.setBounds(0, 250 + b, 1200, 100);
 			line.setForeground(new Color(255, 199, 7));
 			panel_1.add(line);
 		}
@@ -236,6 +234,9 @@ public class MZ_menu_p3 {
 		int v = ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS;
       	int h = ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
       	JScrollPane scrollPane3 = new JScrollPane(panel_1, v, h);
+      	scrollPane3.getVerticalScrollBar().setUnitIncrement(16);	
+
+      	
       	frame3.getContentPane().add(panel, BorderLayout.NORTH);
 		frame3.getContentPane().add(scrollPane3, BorderLayout.CENTER);
 	}

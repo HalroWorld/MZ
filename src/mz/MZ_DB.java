@@ -61,7 +61,6 @@ public class MZ_DB {
       	mzList.setMzMenu(rs.getString("mz_menu"));
       	mzList.setMzMenu2(rs.getString("mz_menu2"));
       	mzList.setMzMenu3(rs.getString("mz_menu3"));
-      	
          
          Blob blob = mzList.getMzImg();
          
