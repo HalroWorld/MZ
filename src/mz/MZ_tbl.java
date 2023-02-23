@@ -25,7 +25,8 @@ public class MZ_tbl {
 	String mzMenu;
 	String mzMenu2;
 	String mzMenu3;
-	
+	public static String str = "";
+	public static int num = 0;
 	
 	public String getMzImgText() {
 		return mzImgText;

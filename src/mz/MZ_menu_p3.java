@@ -46,7 +46,7 @@ public class MZ_menu_p3 {
 		MZ_DB db = new MZ_DB();
 		MZ_list_p2_K k = new MZ_list_p2_K();
 		
-		db.select(k.str,k.num);
+		db.select(MZ_tbl.str,MZ_tbl.num);
 		
 		MZ_DB_Update dbUp = new MZ_DB_Update();
 		frame3 = new JFrame();
@@ -197,7 +197,7 @@ public class MZ_menu_p3 {
 		scrollPane.setViewportView(panel_1);
 		panel_1.setLayout(null);
 		MZ_DB2 db2 = new MZ_DB2();
-		db2.select2(k.num);
+		db2.select2(MZ_tbl.num);
 		
 		for(int i=0; i<2 ;i++) {
 			int b = 300*i;
