@@ -13,10 +13,10 @@ import java.sql.Statement;
 
 public class MZ_DB {
 	static MZ_tbl mzList = new MZ_tbl();
-	static String path;
-	static String path2;
-	static String path3;
-	public void select(int i) {
+	static String[] path = new String[3];
+//	static String path2;
+//	static String path3;
+	public void select(String s, int i) {
 		Connection conn = null;
 		
 	  try {
@@ -32,15 +32,17 @@ public class MZ_DB {
       conn = DriverManager.getConnection(url, user1, passwd);
       
       String sql = "" +
-          "SELECT mz_uid, mz_code, mz_title, mz_star, mz_hours, mz_hit, mz_addr, mz_img, mz_img2, mz_img3, mz_img_name, mz_img2_name, mz_img3_name, mz_star_count " +
-          "FROM mz_tbl " +
-          "WHERE mz_code = 'k" + i +"'";
+          "SELECT mz_uid, mz_code, mz_title, mz_star, mz_hours, mz_hit, mz_addr, mz_img, mz_img2, mz_img3, mz_img_name, mz_img2_name, mz_img3_name, mz_star_count, "
+          + " mz_img_text, mz_img2_text, mz_img3_text, mz_menu, mz_menu2, mz_menu3 " +
+          "FROM " +  s + "_mz_tbl " +
+          "WHERE mz_uid =" +  i ;
       Statement st = conn.createStatement();
       ResultSet rs = st.executeQuery(sql);   // 쿼리 실행후 결과 값을 resultset에 담아 두기
       
       if(rs.next()) {
         
       	mzList.setMzUid(rs.getInt("mz_uid"));
+      	mzList.setMzCode(rs.getString("mz_code"));
       	mzList.setMzTitle(rs.getString("mz_title"));
       	mzList.setMzStar(rs.getDouble("mz_star"));
       	mzList.setMzHours(rs.getString("mz_hours"));
@@ -53,8 +55,13 @@ public class MZ_DB {
       	mzList.setMzImg2Name(rs.getString("mz_img2_name"));
       	mzList.setMzImg3Name(rs.getString("mz_img3_name"));
       	mzList.setMzStarCount(rs.getInt("mz_star_count"));
-
-      	 
+      	mzList.setMzImgText(rs.getString("mz_img_text"));
+      	mzList.setMzImg2Text(rs.getString("mz_img2_text"));
+      	mzList.setMzImg3Text(rs.getString("mz_img3_text"));
+      	mzList.setMzMenu(rs.getString("mz_menu"));
+      	mzList.setMzMenu2(rs.getString("mz_menu2"));
+      	mzList.setMzMenu3(rs.getString("mz_menu3"));
+      	
          
          Blob blob = mzList.getMzImg();
          
@@ -64,7 +71,7 @@ public class MZ_DB {
         	 
            OutputStream os = new FileOutputStream("C:/Temp/" + mzList.getMzImgName());
 //           mzList.getMzImgName()
-           path = "C:/Temp/" + mzList.getMzImgName();
+           path[0] = "C:/Temp/" + mzList.getMzImgName();
            
            is.transferTo(os);
            os.flush();
@@ -77,7 +84,7 @@ public class MZ_DB {
         	 InputStream is  = blob2.getBinaryStream();
            OutputStream os = new FileOutputStream("C:/Temp/" + mzList.getMzImg2Name());
 //           mzList.getMzImgName()
-           path2 = "C:/Temp/" + mzList.getMzImg2Name();
+           path[1] = "C:/Temp/" + mzList.getMzImg2Name();
            
            is.transferTo(os);
            os.flush();
@@ -91,8 +98,8 @@ public class MZ_DB {
         	 InputStream is  = blob3.getBinaryStream();
            OutputStream os = new FileOutputStream("C:/Temp/" + mzList.getMzImg3Name());
 //           mzList.getMzImgName()
-           path3 = "C:/Temp/" + mzList.getMzImg3Name();
-           System.out.println(path);
+           path[2] = "C:/Temp/" + mzList.getMzImg3Name();
+           
            is.transferTo(os);
            os.flush();
            os.close();

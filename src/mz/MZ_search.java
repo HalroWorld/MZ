@@ -120,7 +120,7 @@ public class MZ_search {
 			int b = 650*i;
 			// 왼쪽 이미지
 			JLabel img1 = new JLabel();
-			img1.setIcon(new ImageIcon(db.path));
+			img1.setIcon(new ImageIcon(db.path[0]));
 			img1.setHorizontalAlignment(SwingConstants.CENTER);
 			img1.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 28));
 			img1.setBounds(0, 0 + b, 542, 327);
@@ -128,7 +128,7 @@ public class MZ_search {
 			
 			// 오른쪽 이미지
 			JLabel img2 = new JLabel();
-			img2.setIcon(new ImageIcon(db.path2));
+			img2.setIcon(new ImageIcon(db.path[1]));
 			img2.setHorizontalAlignment(SwingConstants.CENTER);
 			img2.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 28));
 			img2.setBounds(540, 0 + b, 542, 327);

@@ -2,12 +2,15 @@ package mz;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -41,20 +44,21 @@ public class MZ_menu_p3 {
 	
 	private void menu_P3() {
 		MZ_DB db = new MZ_DB();
-		db.select(1);
+		db.select("k",1);
+		
 		MZ_DB_Update dbUp = new MZ_DB_Update();
 		frame3 = new JFrame();
 		frame3.getContentPane().setLayout(new BorderLayout(0, 0));
 		frame3.setIconImage(new ImageIcon("src/mz/mzImg/mzduck.png").getImage());
-		frame3.setTitle("맛-ZIP");
-
+		frame3.setTitle("맛-ZIP");		
+		
 		//전체적인 묶음용 패널임 신경 ㄴㄴ
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
 		frame3.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		panel.setPreferredSize(new Dimension(1000, 600));
-
+		
 		
 		// 상단 홈버튼
 		JButton btn_Home = new JButton("home");
@@ -108,7 +112,7 @@ public class MZ_menu_p3 {
 		
 		// 최상단 메인 사진
 		JLabel main_img = new JLabel();
-		main_img.setIcon(new ImageIcon(db.path3));
+		main_img.setIcon(new ImageIcon(db.path[2]));
 		main_img.setBackground(new Color(255, 255, 255));
 		main_img.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 25));
 		main_img.setBounds(1, 0, 1087, 300);
@@ -173,7 +177,7 @@ public class MZ_menu_p3 {
 		   public void actionPerformed(ActionEvent e) {
 		  	 String selectedItem = score.getSelectedItem().toString();
 		  	int a = selectedItem.length();
-		  	dbUp.update("update mz_tbl set mz_star=(mz_star+" + a + "), mz_star_count=(mz_star_count +1) where mz_uid = 1;");
+		  	dbUp.update("update k_mz_tbl set mz_star=(mz_star+" + a + "), mz_star_count=(mz_star_count +1) where mz_uid = 1;");
 		   }
 		  });
 		panel.add(score);
@@ -190,11 +194,17 @@ public class MZ_menu_p3 {
 		panel_1.setPreferredSize(new Dimension(1000, 3000));
 		scrollPane.setViewportView(panel_1);
 		panel_1.setLayout(null);
+		MZ_DB2 db2 = new MZ_DB2();
+		db2.select2(1);
 		
-		for(int i=0; i<3 ;i++) {
+		for(int i=0; i<2 ;i++) {
 			int b = 300*i;
 			// 메뉴 이름
-			JButton btn_menu = new JButton("메뉴이름");
+			
+			
+
+			JButton btn_menu = new JButton(db2.menu[i]);
+						
 			btn_menu.setHorizontalAlignment(SwingConstants.LEFT);
 			btn_menu.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 35));
 			btn_menu.setBounds(33, 91 + b, 359, 63);
@@ -203,13 +213,14 @@ public class MZ_menu_p3 {
 			panel_1.add(btn_menu);
 			
 			// 메뉴 설명
-			JLabel explanation = new JLabel("우리집 소금 엄마가 직접 뿌려줌");
+			JLabel explanation = new JLabel(db2.text[i]);
 			explanation.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 16));
 			explanation.setBounds(33, 152 + b, 322, 63);
 			panel_1.add(explanation);
 			
 			// 음식사진
-			JLabel sub_img = new JLabel("사진");
+			JLabel sub_img = new JLabel();
+			sub_img.setIcon(new ImageIcon(db.path[i]));
 			sub_img.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 26));
 			sub_img.setBounds(487, 91 + b, 562, 219);
 			panel_1.add(sub_img);
@@ -225,7 +236,6 @@ public class MZ_menu_p3 {
 		int v = ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS;
       	int h = ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
       	JScrollPane scrollPane3 = new JScrollPane(panel_1, v, h);
-      	scrollPane3.getVerticalScrollBar().setUnitIncrement(16);	
       	frame3.getContentPane().add(panel, BorderLayout.NORTH);
 		frame3.getContentPane().add(scrollPane3, BorderLayout.CENTER);
 	}

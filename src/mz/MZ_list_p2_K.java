@@ -39,9 +39,9 @@ public class MZ_list_p2_K {
 		frame2.getContentPane().setFont(new Font("굴림", Font.PLAIN, 67));
 		frame2.getContentPane().setBackground(new Color(255, 255, 255));
 		frame2.setIconImage(new ImageIcon("src/mz/mzImg/mzduck.png").getImage());
-		
+
 		MZ_DB db = new MZ_DB();
-		
+		db.select("k", 1);
 		title_G = new JPanel();
 		title_G.setPreferredSize(new Dimension(100, 200));
 		title_G.setBackground(Color.WHITE);
@@ -81,17 +81,17 @@ public class MZ_list_p2_K {
 		list_G.setLayout(null);
 		
 		for(int i=0; i<3; i++) {
-			db.select(i+1);
+			db.select("k", i+1);
 			int b = 650*i;
 			JLabel img1 = new JLabel();
-			img1.setIcon(new ImageIcon(db.path));
+			img1.setIcon(new ImageIcon(db.path[0]));
 			img1.setHorizontalAlignment(SwingConstants.CENTER);
 			img1.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 28));
 			img1.setBounds(0, 0 + b, 542, 327);
 			list_G.add(img1);
 			
 			JLabel img2 = new JLabel();
-			img2.setIcon(new ImageIcon(db.path2));
+			img2.setIcon(new ImageIcon(db.path[1]));
 			img2.setHorizontalAlignment(SwingConstants.CENTER);
 			img2.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 28));
 			img2.setBounds(540, 0 + b, 542, 327);
@@ -156,8 +156,8 @@ public class MZ_list_p2_K {
 						up.update("update mz_tbl set mz_hit=(mz_hit+1)");
 						MZ_menu_p3.main(null);
 						frame2.setVisible(false);
-					}
-//				}
+//					}
+				}
 			});
 			
 			JButton btn_More = new JButton("더보기");
@@ -190,9 +190,7 @@ public class MZ_list_p2_K {
 			addr.setForeground(new Color(70, 70, 70));
 			addr.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 			addr.setBounds(83, 548 + b, 861, 52);
-//			TitledBorder tb = new TitledBorder(new LineBorder(Color.black));
-//			addr.setBorder(tb);
-//			addr.setBounds(83, 548 + b, 861, 52);
+			TitledBorder tb = new TitledBorder(new LineBorder(Color.black));
 //			addr.setBorder()
 			list_G.add(addr);
 			
@@ -202,7 +200,6 @@ public class MZ_list_p2_K {
 			line.setBounds(0, 558 + b, 1200, 100);
 			line.setForeground(new Color(255, 199, 7));
 			list_G.add(line);
-			
 			
 			JLabel star ; 
 //		star.setHorizontalAlignment(SwingConstants.CENTER);
@@ -239,12 +236,13 @@ public class MZ_list_p2_K {
 			star.setFont(new Font("맑은 고딕", Font.PLAIN, 25));
 			star.setBounds(436, 356 + b, 350, 64);
 			list_G.add(star);
+			
 		}
+	
 		
 		int v = ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS;
       	int h = ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
       	JScrollPane scrollPane = new JScrollPane(list_G, v, h);
-      	scrollPane.getVerticalScrollBar().setUnitIncrement(16);	
       	
 		frame2.getContentPane().add(scrollPane, BorderLayout.CENTER);
 		frame2.getContentPane().add(title_G, BorderLayout.NORTH);

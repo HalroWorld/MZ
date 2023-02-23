@@ -19,7 +19,50 @@ public class MZ_tbl {
 	String mzImg3Name;
 	Blob mzImg3;
 	int mzStarCount;
+	String mzImgText;
+	String mzImg2Text;
+	String mzImg3Text;
+	String mzMenu;
+	String mzMenu2;
+	String mzMenu3;
 	
+	
+	public String getMzImgText() {
+		return mzImgText;
+	}
+	public void setMzImgText(String mzImgText) {
+		this.mzImgText = mzImgText;
+	}
+	public String getMzImg2Text() {
+		return mzImg2Text;
+	}
+	public void setMzImg2Text(String mzImg2Text) {
+		this.mzImg2Text = mzImg2Text;
+	}
+	public String getMzImg3Text() {
+		return mzImg3Text;
+	}
+	public void setMzImg3Text(String mzImg3Text) {
+		this.mzImg3Text = mzImg3Text;
+	}
+	public String getMzMenu() {
+		return mzMenu;
+	}
+	public void setMzMenu(String mzMenu) {
+		this.mzMenu = mzMenu;
+	}
+	public String getMzMenu2() {
+		return mzMenu2;
+	}
+	public void setMzMenu2(String mzMenu2) {
+		this.mzMenu2 = mzMenu2;
+	}
+	public String getMzMenu3() {
+		return mzMenu3;
+	}
+	public void setMzMenu3(String mzMenu3) {
+		this.mzMenu3 = mzMenu3;
+	}
 	public Blob getMzImg3() {
 		return mzImg3;
 	}
@@ -117,6 +160,7 @@ public class MZ_tbl {
 	public void setMzStarCount(int mzStarCount) {
 		this.mzStarCount = mzStarCount;
 	}
+	
 	
 	
 }
