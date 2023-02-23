@@ -43,8 +43,7 @@ public class MZ_list_p2_K {
 
 	// list_P2 메서드 생성
 	private void list_P2() {
-		MZ_tbl tbl = new MZ_tbl(); 
-		tbl.str ="k";
+		MZ_tbl.str ="k";
 		// 프레임 호출(이미지 추가, 컬러 추가, 사이즈 및 위치 조정)
 		frame2 = new JFrame();
 		frame2.getContentPane().setFont(new Font("굴림", Font.PLAIN, 67));
@@ -97,7 +96,7 @@ public class MZ_list_p2_K {
 		
 		
 		// 반복문 1
-			db.select(tbl.str, 1);
+			db.select(MZ_tbl.str, 1);
 			int b = 650 * 0;
 			JLabel img1 = new JLabel();
 			img1.setIcon(new ImageIcon(db.path[0]));
@@ -168,9 +167,9 @@ public class MZ_list_p2_K {
 				public void actionPerformed(ActionEvent e) {
 //					if(btn_storeName.getText().equals(db.mzList.getMzTitle())){
 ////                    MZ_menu_p3.MZ_menu_p3();
-					tbl.num=1;
+					MZ_tbl.num=1;
 						MZ_DB_Update up = new MZ_DB_Update();
-						up.update("update k_mz_tbl set mz_hit=(mz_hit+1) where mz_uid = "+ tbl.num + ";");
+						up.update("update k_mz_tbl set mz_hit=(mz_hit+1) where mz_uid = "+ MZ_tbl.num + ";");
 						MZ_menu_p3.main(null);
 						frame2.setVisible(false);
 //					}
@@ -190,8 +189,8 @@ public class MZ_list_p2_K {
 //					if(btn_More.getText().equals("더보기")){
 //                    MZ_menu_p3.MZ_menu_p3();
 						MZ_DB_Update up = new MZ_DB_Update();
-						tbl.num=1;
-						up.update("update k_mz_tbl set mz_hit=(mz_hit+1) where mz_uid = "+ tbl.num + ";");
+						MZ_tbl.num=1;
+						up.update("update k_mz_tbl set mz_hit=(mz_hit+1) where mz_uid = "+ MZ_tbl.num + ";");
 						MZ_menu_p3.main(null);
 						frame2.setVisible(false);
 //					}
@@ -257,7 +256,7 @@ public class MZ_list_p2_K {
 			
 			
 			// 반복문 2
-			db.select(tbl.str, 2);
+			db.select(MZ_tbl.str, 2);
 			b = 650 * 1;
 			img1 = new JLabel();
 			img1.setIcon(new ImageIcon(db.path[0]));
@@ -329,8 +328,8 @@ public class MZ_list_p2_K {
 //					if(btn_storeName.getText().equals(db.mzList.getMzTitle())){
 ////                    MZ_menu_p3.MZ_menu_p3();
 						MZ_DB_Update up = new MZ_DB_Update();
-						tbl.num=2;
-						up.update("update k_mz_tbl set mz_hit=(mz_hit+1) where mz_uid = "+ tbl.num + ";");
+						MZ_tbl.num=2;
+						up.update("update k_mz_tbl set mz_hit=(mz_hit+1) where mz_uid = "+ MZ_tbl.num + ";");
 						
 						MZ_menu_p3.main(null);
 						frame2.setVisible(false);
@@ -351,8 +350,8 @@ public class MZ_list_p2_K {
 //					if(btn_More.getText().equals("더보기")){
 //                    MZ_menu_p3.MZ_menu_p3();
 						MZ_DB_Update up = new MZ_DB_Update();
-						tbl.num=2;
-						up.update("update k_mz_tbl set mz_hit=(mz_hit+1) where mz_uid = "+ tbl.num + ";");
+						MZ_tbl.num=2;
+						up.update("update k_mz_tbl set mz_hit=(mz_hit+1) where mz_uid = "+ MZ_tbl.num + ";");
 						
 						MZ_menu_p3.main(null);
 						frame2.setVisible(false);
@@ -420,7 +419,7 @@ public class MZ_list_p2_K {
 			
 			
 			// 반복문 3
-			db.select(tbl.str, 3);
+			db.select(MZ_tbl.str, 3);
 			b = 650 * 2;
 			img1 = new JLabel();
 			img1.setIcon(new ImageIcon(db.path[0]));
@@ -492,8 +491,8 @@ public class MZ_list_p2_K {
 //					if(btn_storeName.getText().equals(db.mzList.getMzTitle())){
 ////                    MZ_menu_p3.MZ_menu_p3();
 						MZ_DB_Update up = new MZ_DB_Update();
-						tbl.num=3;
-						up.update("update k_mz_tbl set mz_hit=(mz_hit+1) where mz_uid = "+ tbl.num + ";");
+						MZ_tbl.num=3;
+						up.update("update k_mz_tbl set mz_hit=(mz_hit+1) where mz_uid = "+ MZ_tbl.num + ";");
 						
 						MZ_menu_p3.main(null);
 						frame2.setVisible(false);
@@ -514,8 +513,8 @@ public class MZ_list_p2_K {
 //					if(btn_More.getText().equals("더보기")){
 //                    MZ_menu_p3.MZ_menu_p3();
 						MZ_DB_Update up = new MZ_DB_Update();
-						tbl.num=3;
-						up.update("update k_mz_tbl set mz_hit=(mz_hit+1) where mz_uid = "+ tbl.num + ";");
+						MZ_tbl.num=3;
+						up.update("update k_mz_tbl set mz_hit=(mz_hit+1) where mz_uid = "+ MZ_tbl.num + ";");
 					
 						MZ_menu_p3.main(null);
 						frame2.setVisible(false);

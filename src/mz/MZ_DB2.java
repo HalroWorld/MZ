@@ -18,7 +18,7 @@ public class MZ_DB2 {
 	
 	
 	
-	public void select2(int i) {
+	public void select2(String str, int i) {
 		Connection conn = null;
 		
 	  try {
@@ -32,8 +32,8 @@ public class MZ_DB2 {
       
       String sql = "" +
           "SELECT mz_uid, mz_img_text, mz_img2_text, mz_menu, mz_menu2 " +
-          "FROM k_mz_tbl " +
-          "WHERE mz_uid =" +  i;
+          "FROM " + str + "_mz_tbl " +
+          "WHERE mz_uid=" +  i;
       Statement st = conn.createStatement();
       ResultSet rs = st.executeQuery(sql);   // 쿼리 실행후 결과 값을 resultset에 담아 두기
       
