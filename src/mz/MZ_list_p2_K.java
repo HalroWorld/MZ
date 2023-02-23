@@ -19,42 +19,57 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 public class MZ_list_p2_K {
-
+	
+	// 패널, 프레임 변수 생성
 	private JPanel title_G = new JPanel();
 	private JFrame frame2;
 	
+	// MZ_list_p2_K 생성자에서 list_P2 메소드 호출
 	public MZ_list_p2_K() {
 		list_P2();
+		
+		// 기본 프레임 셋팅(제목, 프레임 사이즈, 닫기 버튼)
 		frame2.setTitle("맛-ZIP");
 		frame2.setResizable(false);
 		frame2.setVisible(true);
 		frame2.setBounds(100, 100, 1101, 999);
 		frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		// frame2 창 띄우자마자 센터로 옮김
 		frame2.setLocationRelativeTo(null);
 	}
 
 	
+	// list_P2 메서드 생성
 	private void list_P2() {
+		
+		// 프레임 호출(이미지 추가, 컬러 추가, 사이즈 및 위치 조정)
 		frame2 = new JFrame();
 		frame2.getContentPane().setFont(new Font("굴림", Font.PLAIN, 67));
 		frame2.getContentPane().setBackground(new Color(255, 255, 255));
 		frame2.setIconImage(new ImageIcon("src/mz/mzImg/mzduck.png").getImage());
 
+		
+		// DB와 연결 위해 불러오기
 		MZ_DB db = new MZ_DB();
+		
+		
 		db.select("k", 1);
+		
+		// 패널 title_G 호출(사이즈 및 위치 조정, 프레임에 추가)
 		title_G = new JPanel();
 		title_G.setPreferredSize(new Dimension(100, 200));
 		title_G.setBackground(Color.WHITE);
 		title_G.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		
+		// title 라벨 생성(K-푸드 위치 조정, 폰트 변경, 패널에 추가)
 		JLabel title = new JLabel("K- 푸드");
-	
 		title.setHorizontalAlignment(SwingConstants.LEFT);
 		title.setForeground(new Color(0, 0, 0));
 		title.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 99));
 		title_G.add(title);
 		
+		// btn_home 버튼 생성(위치 조정, 이미지 추가, 폰트 변경, 패널에 추가)
 		// 텍스트 변경 안되고 이미지 수정 필요
 		JButton btn_home = new JButton("home");
 		btn_home.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -73,7 +88,7 @@ public class MZ_list_p2_K {
 			}
 		});
 
-		
+		// list_G 패널 생성(위치 조정, 이미지 추가, 폰트 변경, 패널에 추가)
 		JPanel list_G = new JPanel();
 		list_G.setPreferredSize(new Dimension(1000, 1900));
 		list_G.setBackground(Color.WHITE);
@@ -555,13 +570,13 @@ public class MZ_list_p2_K {
 			star2.setBounds(436, 356 + b, 350, 64);
 			list_G.add(star2);
 			
-	
-		
+		// 스크롤 생성
 		int v = ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS;
       	int h = ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
       	JScrollPane scrollPane = new JScrollPane(list_G, v, h);
       	scrollPane.getVerticalScrollBar().setUnitIncrement(16);
       	
+      	// 프레임에 스크롤 추가 및 title_G 추가
 		frame2.getContentPane().add(scrollPane, BorderLayout.CENTER);
 		frame2.getContentPane().add(title_G, BorderLayout.NORTH);
 //		frame2.getContentPane().setLayout(groupLayout);
