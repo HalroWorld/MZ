@@ -40,7 +40,7 @@ public class MZ_menu_p3 {
 	
 	private void menu_P3() {
 		MZ_DB db = new MZ_DB();
-		db.select();
+		db.select(1);
 		MZ_DB_Update dbUp = new MZ_DB_Update();
 		frame3 = new JFrame();
 		frame3.getContentPane().setLayout(new BorderLayout(0, 0));

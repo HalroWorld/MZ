@@ -43,7 +43,7 @@ public class MZ_list_p2 {
 		
 		
 		MZ_DB db = new MZ_DB();
-		db.select();
+		
 		
 		title_G = new JPanel();
 		title_G.setPreferredSize(new Dimension(100, 200));
@@ -84,6 +84,7 @@ public class MZ_list_p2 {
 		list_G.setLayout(null);
 		
 		for(int i=0; i<3; i++) {
+			db.select(i+1);
 			int b = 650*i;
 			JLabel img1 = new JLabel();
 			img1.setIcon(new ImageIcon(db.path));
@@ -202,8 +203,14 @@ public class MZ_list_p2 {
 			
 			int total = (int)db.mzList.getMzStar();
 			int count = db.mzList.getMzStarCount();
-			int avg = (int)total/count;
+			int avg = 0;
 			String result;
+			
+			if(count == 0){
+				result = "";
+			} else {
+				avg = (int)total/count;				
+			}
 			
 			switch(avg) {
 			case 5: result = "★★★★★";
@@ -216,7 +223,7 @@ public class MZ_list_p2 {
 			break;
 			case 1: result = "★";
 			break;
-			default: result = "계산 오류";
+			default: result = "평점을 남겨주세요.";
 			break;
 			}
 			System.out.print(result);

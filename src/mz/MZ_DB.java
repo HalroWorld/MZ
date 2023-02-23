@@ -16,7 +16,7 @@ public class MZ_DB {
 	static String path;
 	static String path2;
 	static String path3;
-	public void select() {
+	public void select(int i) {
 		Connection conn = null;
 		
 	  try {
@@ -32,9 +32,9 @@ public class MZ_DB {
       conn = DriverManager.getConnection(url, user1, passwd);
       
       String sql = "" +
-          "SELECT mz_uid, mz_title, mz_star, mz_hours, mz_hit, mz_addr, mz_img, mz_img2, mz_img3, mz_img_name, mz_img2_name, mz_img3_name, mz_star_count " +
+          "SELECT mz_uid, mz_code, mz_title, mz_star, mz_hours, mz_hit, mz_addr, mz_img, mz_img2, mz_img3, mz_img_name, mz_img2_name, mz_img3_name, mz_star_count " +
           "FROM mz_tbl " +
-          "WHERE mz_uid =1 ";
+          "WHERE mz_code = 'k" + i +"'";
       Statement st = conn.createStatement();
       ResultSet rs = st.executeQuery(sql);   // 쿼리 실행후 결과 값을 resultset에 담아 두기
       
