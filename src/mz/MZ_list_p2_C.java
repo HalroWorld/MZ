@@ -84,14 +84,14 @@ public class MZ_list_p2_C {
 			db.select("c",i+1);
 			int b = 650*i;
 			JLabel img1 = new JLabel();
-			img1.setIcon(new ImageIcon(db.path[1]));
+			img1.setIcon(new ImageIcon(db.path[0]));
 			img1.setHorizontalAlignment(SwingConstants.CENTER);
 			img1.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 28));
 			img1.setBounds(0, 0 + b, 542, 327);
 			list_G.add(img1);
 			
 			JLabel img2 = new JLabel();
-			img2.setIcon(new ImageIcon(db.path[2]));
+			img2.setIcon(new ImageIcon(db.path[1]));
 			img2.setHorizontalAlignment(SwingConstants.CENTER);
 			img2.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 28));
 			img2.setBounds(540, 0 + b, 542, 327);
