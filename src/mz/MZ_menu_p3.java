@@ -2,6 +2,7 @@ package mz;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -9,13 +10,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
 
 public class MZ_menu_p3 {
 
@@ -44,11 +45,16 @@ public class MZ_menu_p3 {
 		MZ_DB_Update dbUp = new MZ_DB_Update();
 		frame3 = new JFrame();
 		frame3.getContentPane().setLayout(new BorderLayout(0, 0));
+		frame3.setIconImage(new ImageIcon("src/mz/mzImg/mzduck.png").getImage());
+		frame3.setTitle("맛-ZIP");		
+		
 		//전체적인 묶음용 패널임 신경 ㄴㄴ
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
 		frame3.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
+		panel.setPreferredSize(new Dimension(1000, 600));
+		
 		
 		// 상단 홈버튼
 		JButton btn_Home = new JButton("home");
@@ -88,65 +94,11 @@ public class MZ_menu_p3 {
 			public void actionPerformed(ActionEvent e) {
                 if(btn_back.getText().equals("back")){
 //                    MZ_menu_p3.MZ_menu_p3();  
-                    new MZ_list_p2();
+                    new MZ_list_p2_K();
 					frame3.setVisible(false);
                 }
 			}
 		});
-		
-		// 스크롤 
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 541, 1088, 692);
-		panel.add(scrollPane);
-		
-		// 스크롤 안에 부속재료들 묶음용
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(255, 255, 255));
-		scrollPane.setViewportView(panel_1);
-		panel_1.setLayout(null);
-		
-		// 메뉴 이름
-		JButton btn_menu = new JButton("메뉴이름");
-		btn_menu.setHorizontalAlignment(SwingConstants.LEFT);
-		btn_menu.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 35));
-		btn_menu.setBounds(33, 91, 359, 63);
-		btn_menu.setBorderPainted(false);
-		btn_menu.setBackground(new Color (255,255,255));
-		panel_1.add(btn_menu);
-		
-		// 메뉴 설명
-		JLabel explanation = new JLabel("우리집 소금 엄마가 직접 뿌려줌");
-		explanation.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 16));
-		explanation.setBounds(33, 152, 322, 63);
-		panel_1.add(explanation);
-		
-		// 음식사진
-		JLabel sub_img = new JLabel("사진");
-		
-		sub_img.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 26));
-		sub_img.setBounds(487, 91, 562, 219);
-		panel_1.add(sub_img);
-		
-		// 메뉴 이름2
-		JButton btn_menu2 = new JButton("메뉴이름");
-		btn_menu2.setHorizontalAlignment(SwingConstants.LEFT);
-		btn_menu2.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 35));
-		btn_menu2.setBounds(33, 376, 359, 63);
-		btn_menu2.setBorderPainted(false);
-		btn_menu2.setBackground(new Color (255,255,255));
-		panel_1.add(btn_menu2);
-		
-		// 메뉴 설명2
-		JLabel explanation_2 = new JLabel("시베리아 앞바다 소금을 뿌린 주먹밥");
-		explanation_2.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 16));
-		explanation_2.setBounds(33, 437, 322, 63);
-		panel_1.add(explanation_2);
-		
-		// 음식사진2
-		JLabel sub_img_2 = new JLabel("이미지");
-		sub_img_2.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 26));
-		sub_img_2.setBounds(487, 376, 562, 219);
-		panel_1.add(sub_img_2);
 		
 		// 가게 이름 (리스트3 페이지 타이틀)
 		JLabel store_Name = new JLabel(db.mzList.getMzTitle());
@@ -225,5 +177,55 @@ public class MZ_menu_p3 {
 		   }
 		  });
 		panel.add(score);
+		
+		
+		
+		// 스크롤 
+		JScrollPane scrollPane = new JScrollPane();
+		panel.add(scrollPane);
+		
+		// 스크롤 안에 부속재료들 묶음용
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(255, 255, 255));
+		panel_1.setPreferredSize(new Dimension(1000, 3000));
+		scrollPane.setViewportView(panel_1);
+		panel_1.setLayout(null);
+		
+		for(int i=0; i<3 ;i++) {
+			int b = 300*i;
+			// 메뉴 이름
+			JButton btn_menu = new JButton("메뉴이름");
+			btn_menu.setHorizontalAlignment(SwingConstants.LEFT);
+			btn_menu.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 35));
+			btn_menu.setBounds(33, 91 + b, 359, 63);
+			btn_menu.setBorderPainted(false);
+			btn_menu.setBackground(new Color (255,255,255));
+			panel_1.add(btn_menu);
+			
+			// 메뉴 설명
+			JLabel explanation = new JLabel("우리집 소금 엄마가 직접 뿌려줌");
+			explanation.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 16));
+			explanation.setBounds(33, 152 + b, 322, 63);
+			panel_1.add(explanation);
+			
+			// 음식사진
+			JLabel sub_img = new JLabel("사진");
+			sub_img.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 26));
+			sub_img.setBounds(487, 91 + b, 562, 219);
+			panel_1.add(sub_img);
+			
+			JLabel line 
+			= new JLabel("-------------------------------------------------------------------------------------------------------------------------------------------");
+			line.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+			line.setBounds(0, 230 + b, 1200, 100);
+			line.setForeground(new Color(255, 199, 7));
+			panel_1.add(line);
+		}
+		
+		int v = ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS;
+      	int h = ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
+      	JScrollPane scrollPane3 = new JScrollPane(panel_1, v, h);
+      	frame3.getContentPane().add(panel, BorderLayout.NORTH);
+		frame3.getContentPane().add(scrollPane3, BorderLayout.CENTER);
 	}
 }

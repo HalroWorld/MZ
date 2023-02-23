@@ -18,12 +18,12 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
-public class MZ_list_p2 {
+public class MZ_list_p2_D {
 
 	private JPanel title_G = new JPanel();
 	private JFrame frame2;
 	
-	public MZ_list_p2() {
+	public MZ_list_p2_D() {
 		list_P2();
 		frame2.setTitle("맛-ZIP");
 		frame2.setResizable(false);
@@ -39,11 +39,8 @@ public class MZ_list_p2 {
 		frame2.getContentPane().setFont(new Font("굴림", Font.PLAIN, 67));
 		frame2.getContentPane().setBackground(new Color(255, 255, 255));
 		frame2.setIconImage(new ImageIcon("src/mz/mzImg/mzduck.png").getImage());
-
-		
 		
 		MZ_DB db = new MZ_DB();
-		
 		
 		title_G = new JPanel();
 		title_G.setPreferredSize(new Dimension(100, 200));
@@ -51,7 +48,7 @@ public class MZ_list_p2 {
 		title_G.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		
-		JLabel title = new JLabel("K- 푸드");
+		JLabel title = new JLabel("디저트");
 	
 		title.setHorizontalAlignment(SwingConstants.LEFT);
 		title.setForeground(new Color(0, 0, 0));
@@ -61,7 +58,7 @@ public class MZ_list_p2 {
 		// 텍스트 변경 안되고 이미지 수정 필요
 		JButton btn_home = new JButton("home");
 		btn_home.setHorizontalAlignment(SwingConstants.RIGHT);
-		btn_home.setIcon(new ImageIcon(MZ_list_p2.class.getResource("/mz/mzImg/home.png")));
+		btn_home.setIcon(new ImageIcon(MZ_list_p2_D.class.getResource("/mz/mzImg/home.png")));
 		btn_home.setBorderPainted(false);
 		btn_home.setBackground(new Color (255,255,255));
 		title_G.add(btn_home);
@@ -193,9 +190,18 @@ public class MZ_list_p2 {
 			addr.setForeground(new Color(70, 70, 70));
 			addr.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 			addr.setBounds(83, 548 + b, 861, 52);
-			TitledBorder tb = new TitledBorder(new LineBorder(Color.black));
+//			TitledBorder tb = new TitledBorder(new LineBorder(Color.black));
+//			addr.setBorder(tb);
+//			addr.setBounds(83, 548 + b, 861, 52);
 //			addr.setBorder()
 			list_G.add(addr);
+			
+			JLabel line 
+			= new JLabel("-------------------------------------------------------------------------------------------------------------------------------------------");
+			line.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+			line.setBounds(0, 558 + b, 1200, 100);
+			line.setForeground(new Color(255, 199, 7));
+			list_G.add(line);
 			
 			
 			JLabel star ; 
@@ -233,14 +239,11 @@ public class MZ_list_p2 {
 			star.setFont(new Font("맑은 고딕", Font.PLAIN, 25));
 			star.setBounds(436, 356 + b, 350, 64);
 			list_G.add(star);
-			
-			System.out.println();
 		}
-	
 		
 		int v = ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS;
-      	int h = ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS;
-      	JScrollPane scrollPane = new JScrollPane(list_G, v,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+      	int h = ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
+      	JScrollPane scrollPane = new JScrollPane(list_G, v, h);
       	
 		frame2.getContentPane().add(scrollPane, BorderLayout.CENTER);
 		frame2.getContentPane().add(title_G, BorderLayout.NORTH);
