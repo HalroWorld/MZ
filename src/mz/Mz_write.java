@@ -152,7 +152,6 @@ public class Mz_write extends JDialog{
 			
 			
 			
-			
 			{
 				JButton cancelButton = new JButton("취소");
 				cancelButton.addActionListener(new ActionListener() {
