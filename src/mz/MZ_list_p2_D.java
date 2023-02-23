@@ -150,13 +150,13 @@ public class MZ_list_p2_D {
 			btn_storeName.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					if(btn_storeName.getText().equals(db.mzList.getMzTitle())){
+//					if(btn_storeName.getText().equals(db.mzList.getMzTitle())){
 ////                    MZ_menu_p3.MZ_menu_p3();
 						MZ_DB_Update up = new MZ_DB_Update();
 						up.update("update mz_tbl set mz_hit=(mz_hit+1)");
 						MZ_menu_p3.main(null);
 						frame2.setVisible(false);
-					}
+//					}
 				}
 			});
 			
@@ -170,13 +170,13 @@ public class MZ_list_p2_D {
 			btn_More.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					if(btn_More.getText().equals("더보기")){
+//					if(btn_More.getText().equals("더보기")){
 //                    MZ_menu_p3.MZ_menu_p3();
 						MZ_DB_Update up = new MZ_DB_Update();
 						up.update("update mz_tbl set mz_hit=(mz_hit+1)");
 						MZ_menu_p3.main(null);
 						frame2.setVisible(false);
-					}
+//					}
 				}
 			});
 			frame2.getContentPane().setLayout(new BorderLayout(0, 0));
