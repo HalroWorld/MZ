@@ -272,6 +272,8 @@ public class Mz_board extends JFrame {
 			btnopen.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					// 게시물 다이얼로그 띄우기
+					Mz_read re = new Mz_read();
+					re.db_select();
 					Mz_read jDialog = new Mz_read();
 					jDialog.setVisible(true);
 				}
