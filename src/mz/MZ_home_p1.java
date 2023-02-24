@@ -4,18 +4,17 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class MZ_home_p1 {
 //패널, 프레임, 버튼, 텍스트 필드 변수 생성
@@ -49,6 +48,20 @@ public class MZ_home_p1 {
 		if(btn_K == null) {
 		// K-FOOD 버튼 생성(이미지 추가, 컬러 추가, 사이즈 및 위치 조정)
 			btn_K = new JButton("");
+			// 마우스 호버 효과
+			btn_K.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseEntered(MouseEvent e) {
+					btn_K.setBackground(new Color(255,242,197));
+					btn_K.repaint();
+					
+				}
+				@Override
+				public void mouseExited(MouseEvent e) {
+					
+					btn_K.setBackground(Color.WHITE);
+				}
+			});
 			btn_K.setBackground(Color.WHITE);
 			btn_K.setIcon(new ImageIcon(MZ_home_p1.class.getResource("/mz/mzImg/k.png")));
 			btn_K.setBounds(44, 138, 275, 168);
@@ -72,6 +85,18 @@ public class MZ_home_p1 {
 		if(btn_C == null) {
 		// 중식 버튼 생성(이미지 추가, 컬러 추가, 사이즈 및 위치 조정)
 			btn_C = new JButton();
+			// 마우스 호버효과
+			btn_C.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseEntered(MouseEvent e) {
+					btn_C.setBackground(new Color(255,242,197));
+					btn_C.repaint();
+				}
+				@Override
+				public void mouseExited(MouseEvent e) {
+					btn_C.setBackground(Color.WHITE);
+				}
+			});
 			btn_C.setBackground(Color.WHITE);
 			btn_C.setIcon(new ImageIcon(MZ_home_p1.class.getResource("/mz/mzImg/c.png")));
 			btn_C.setBounds(398, 140, 275, 168);
@@ -93,6 +118,18 @@ public class MZ_home_p1 {
 		if(btn_F == null) {
 			// 양식 버튼 생성(이미지 추가, 컬러 추가, 사이즈 및 위치 조정)
 			btn_F = new JButton();
+			// 마우스 호버효과
+			btn_F.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseEntered(MouseEvent e) {
+					btn_F.setBackground(new Color(255,242,197));
+					btn_F.repaint();
+				}
+				@Override
+				public void mouseExited(MouseEvent e) {
+					btn_F.setBackground(Color.WHITE);
+				}
+			});
 			btn_F.setBackground(Color.WHITE);
 			btn_F.setIcon(new ImageIcon(MZ_home_p1.class.getResource("/mz/mzImg/f.png")));
 			btn_F.setBounds(749, 138, 277, 168);
@@ -115,6 +152,18 @@ public class MZ_home_p1 {
 		if(btn_AZ == null) {
 			// A-Z 버튼 생성(이미지 추가, 컬러 추가, 사이즈 및 위치 조정)
 			btn_AZ = new JButton();
+			// 마우스 호버효과
+			btn_AZ.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseEntered(MouseEvent e) {
+					btn_AZ.setBackground(new Color(255,242,197));
+					btn_AZ.repaint();
+				}
+				@Override
+				public void mouseExited(MouseEvent e) {
+					btn_AZ.setBackground(Color.WHITE);
+				}
+			});
 			btn_AZ.setBackground(Color.WHITE);
 			btn_AZ.setIcon(new ImageIcon(MZ_home_p1.class.getResource("/mz/mzImg/a.png")));
 			btn_AZ.setBounds(44, 351, 275, 168);
@@ -137,6 +186,18 @@ public class MZ_home_p1 {
 		if(btn_J == null) {
 			// 일식 버튼 생성(이미지 추가, 컬러 추가, 사이즈 및 위치 조정)
 			btn_J = new JButton();
+			// 마우스 호버효과
+			btn_J.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseEntered(MouseEvent e) {
+					btn_J.setBackground(new Color(255,242,197));
+					btn_J.repaint();
+				}
+				@Override
+				public void mouseExited(MouseEvent e) {
+					btn_J.setBackground(Color.WHITE);
+				}
+			});
 			btn_J.setBackground(Color.WHITE);
 			btn_J.setIcon(new ImageIcon(MZ_home_p1.class.getResource("/mz/mzImg/j.png")));
 			btn_J.setBounds(398, 353, 275, 168);
@@ -159,6 +220,18 @@ public class MZ_home_p1 {
 		if(btn_D == null) {
 			// 디저트 버튼 생성(이미지 추가, 컬러 추가, 사이즈 및 위치 조정)
 			btn_D = new JButton();
+			// 마우스 호버효과
+			btn_D.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseEntered(MouseEvent e) {
+					btn_D.setBackground(new Color(255,242,197));
+					btn_D.repaint();
+				}
+				@Override
+				public void mouseExited(MouseEvent e) {
+					btn_D.setBackground(Color.WHITE);
+				}
+			});
 			btn_D.setBackground(Color.WHITE);
 			btn_D.setIcon(new ImageIcon(MZ_home_p1.class.getResource("/mz/mzImg/d.png")));
 			btn_D.setBounds(749, 351, 277, 168);
@@ -216,8 +289,7 @@ public class MZ_home_p1 {
 		search.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String data = search.getText();
-				
+				String data = search.getText(); 
         if(data.equals("한식")){
         	MZ_tbl.str = "k";
 				MZ_tbl.num = 1;
@@ -233,15 +305,12 @@ public class MZ_home_p1 {
         	MZ_tbl.str = "d";
         }else if(data.equals("아재")) {
         	MZ_tbl.str = "az";
-        } else {
-        	MZ_tbl.str = "k";
         }
-
-        	new MZ_search();
-        	frame.setVisible(false);
-        	
-
-			}
+        
+	
+            new MZ_search();
+					frame.setVisible(false);
+                }
 		});
 		menu_G.add(search);
 		
@@ -250,7 +319,6 @@ public class MZ_home_p1 {
 		button.setIcon(new ImageIcon(MZ_home_p1.class.getResource("/mz/mzImg/se.png")));
 		button.setBackground(Color.WHITE);
 		button.setBounds(931, 26, 95, 49);
-
 		button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -271,34 +339,46 @@ public class MZ_home_p1 {
         }else if(data.equals("아재")) {
         	MZ_tbl.str = "az";
         }
-        
-        	new MZ_search();
-        	frame.setVisible(false);
-        	
+               new MZ_search();
+					frame.setVisible(false);
                 }
 		});
 		menu_G.add(button);
 		
 	// QNA 버튼 생성(사이즈 및 위치 조정, 패널에 추가, 이미지 적용)
 		JButton btn_QNA = new JButton("Q&A");
+		// 마우스 호버효과
+		btn_QNA.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btn_QNA.setBackground(new Color(255,242,197));
+				btn_QNA.repaint();
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btn_QNA.setBackground(Color.WHITE);
+			}
+		});
 		btn_QNA.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 30));
 		btn_QNA.setBackground(Color.WHITE);
 		btn_QNA.setBounds(44, 622, 275, 106);
 		btn_QNA.setBorderPainted(false);
 		menu_G.add(btn_QNA);
 		
-		//에러 기능 추가
-		btn_QNA.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-//				JOptionPane aa = new JOptionPane();
-//				JOptionPane.showMessageDialog(null, "업데이트 중입니다", "경고창", JOptionPane.ERROR_MESSAGE);
-				new MZ_ErrorWindow();
-				}
-		});
-		
 		// 홈 버튼 생성(사이즈 및 위치 조정, 패널에 추가, 이미지 적용)
 		JButton btn_Home = new JButton("");
+		// 마우스 호버효과
+		btn_Home.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btn_Home.setBackground(new Color(255,242,197));
+				btn_Home.repaint();
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btn_Home.setBackground(Color.WHITE);
+			}
+		});
 		btn_Home.setIcon(new ImageIcon(MZ_home_p1.class.getResource("/mz/mzImg/home.png")));
 		btn_Home.setBackground(Color.WHITE);
 		btn_Home.setBounds(398, 624, 275, 106);
@@ -307,21 +387,23 @@ public class MZ_home_p1 {
 		
 		// 리뷰 버튼 생성(사이즈 및 위치 조정, 패널에 추가, 이미지 적용)
 		JButton btn_Re = new JButton("리뷰");
+		// 마우스 호버효과
+		btn_Re.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btn_Re.setBackground(new Color(255,242,197));
+				btn_Re.repaint();
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btn_Re.setBackground(Color.WHITE);
+			}
+		});
 		btn_Re.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 30));
 		btn_Re.setBackground(Color.WHITE);
 		btn_Re.setBounds(749, 622, 277, 106);
 		btn_Re.setBorderPainted(false);
 		menu_G.add(btn_Re);
-		
-		// 에러 기능 추가
-		btn_Re.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-//				JOptionPane aa = new JOptionPane();
-//				JOptionPane.showMessageDialog(null, "업데이트 중입니다", "경고창", JOptionPane.ERROR_MESSAGE);
-				new MZ_ErrorWindow();
-				}
-		});
 	}
 
 }

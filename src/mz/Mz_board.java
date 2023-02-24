@@ -19,6 +19,7 @@ public class Mz_board extends JFrame {
 	
 	// 메인 윈도우 설정
 	public Mz_board() {
+		getContentPane().setBackground(new Color(255, 255, 255));
 		this.setTitle("게시판 리스트");;
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.getContentPane().add(new JScrollPane(getJTable()),
@@ -75,9 +76,11 @@ public class Mz_board extends JFrame {
 	public JPanel getPSouth() {
 		if(pSouth == null) {
 			pSouth = new JPanel();
+			pSouth.setBackground(new Color(255, 255, 255));
 			
 			pSouth.setLayout(new GridLayout(3,1));			
 			JPanel pButton = new JPanel();
+			pButton.setBackground(new Color(255, 255, 255));
 			pButton.add(getBtnInsert());
 			pSouth.add(pButton);
 		}
@@ -102,7 +105,22 @@ public class Mz_board extends JFrame {
 	public JButton getBtnInsert() {
 		if(btnInsert == null) {
 			btnInsert = new JButton();
+			btnInsert.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					btnInsert.setBackground(new Color(255,199,7));
+					btnInsert.setForeground(Color.WHITE);
+					
+				}
+				@Override
+				public void mouseExited(MouseEvent e) {
+					btnInsert.setBackground(Color.WHITE);
+					btnInsert.setForeground(Color.BLACK);
+				}
+			});
+			btnInsert.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 20));
 			btnInsert.setText("추가");
+			btnInsert.setBackground(Color.WHITE);
 			btnInsert.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					// 다이얼로그 띄우기

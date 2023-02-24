@@ -43,6 +43,7 @@ public class MZ_search {
 
 	public MZ_search() {
 		initialize();
+		frame.setTitle("맛-ZIP");
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
 
@@ -54,6 +55,7 @@ public class MZ_search {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
+		frame.setIconImage(new ImageIcon("src/mz/mzImg/mzduck.png").getImage());
 		
 		
 		JPanel panel = new JPanel();
