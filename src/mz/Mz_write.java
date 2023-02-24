@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -21,6 +22,11 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+import java.awt.Color;
+import javax.swing.border.LineBorder;
+import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 public class Mz_write extends JDialog{
@@ -54,45 +60,72 @@ public class Mz_write extends JDialog{
 	 */
 	public Mz_write(JFrame owner) {
 		this.setTitle("게시물 작성");
+		this.setIconImage(new ImageIcon("src/mz/mzImg/mzduck.png").getImage());
 		setBounds(100, 100, 567, 405);
 		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBackground(new Color(255, 242, 197));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
 		txtTitle = new JTextField();
+		txtTitle.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		txtTitle.setBorder(new LineBorder(new Color(255, 242, 197), 2, true));
 		txtTitle.setBounds(137, 36, 341, 21);
 		contentPanel.add(txtTitle);
 		txtTitle.setColumns(10);
 		
 		txtUser = new JTextField();
+		txtUser.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		txtUser.setBorder(new LineBorder(new Color(255, 242, 197), 2, true));
 		txtUser.setBounds(137, 95, 341, 21);
 		contentPanel.add(txtUser);
 		txtUser.setColumns(10);
 		
 		JTextArea txtContent = new JTextArea();
+		txtContent.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		txtContent.setBorder(new LineBorder(new Color(255, 242, 197), 2, true));
 		txtContent.setBounds(137, 154, 341, 153);
 		contentPanel.add(txtContent);
 		
 		JLabel lblNewLabel = new JLabel("제목");
+		lblNewLabel.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 16));
 		lblNewLabel.setBounds(51, 39, 52, 15);
 		contentPanel.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("글쓴이");
+		lblNewLabel_1.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 16));
 		lblNewLabel_1.setBounds(51, 98, 52, 15);
 		contentPanel.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("내용");
+		lblNewLabel_2.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 16));
 		lblNewLabel_2.setBounds(51, 218, 52, 15);
 		contentPanel.add(lblNewLabel_2);
 		{
 			JPanel buttonPane = new JPanel();
+			buttonPane.setBackground(new Color(255, 242, 197));
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			
 			
 			{
 				JButton okButton = new JButton("저장");
+				okButton.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseEntered(MouseEvent e) {
+						 okButton.setBackground(new Color(255,199,7));
+						 okButton.setForeground(Color.WHITE);
+					}
+					@Override
+					public void mouseExited(MouseEvent e) {
+						 okButton.setBackground(new Color(255,242,197));
+						 okButton.setForeground(Color.BLACK);
+					}
+				});
+				okButton.setBorderPainted(false);
+				okButton.setBackground(new Color(255, 242, 197));
+				okButton.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 16));
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {												
 						
@@ -188,6 +221,21 @@ public class Mz_write extends JDialog{
 			
 			{
 				JButton cancelButton = new JButton("취소");
+				cancelButton.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseEntered(MouseEvent e) {
+						cancelButton.setBackground(new Color(255,199,7));
+						cancelButton.setForeground(Color.WHITE);
+					}
+					@Override
+					public void mouseExited(MouseEvent e) {
+						cancelButton.setBackground(new Color(255,242,197));
+						cancelButton.setForeground(Color.BLACK);
+					}
+				});
+				cancelButton.setBorderPainted(false);
+				cancelButton.setBackground(new Color(255, 242, 197));
+				cancelButton.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 16));
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						dispose();
