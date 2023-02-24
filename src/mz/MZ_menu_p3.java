@@ -136,6 +136,13 @@ public class MZ_menu_p3 {
 		btn_lo.setBounds(82, 375, 46, 46);
 		btn_lo.setBorderPainted(false);
 		btn_lo.setBackground(new Color (255,255,255));
+		btn_lo.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new Mz_board_map();
+//				frame.setVisible(false);
+			}
+		});
 		panel.add(btn_lo);
 		
 		// 좋아요 버튼
