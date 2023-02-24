@@ -1,20 +1,26 @@
 package mz;
 
 
-import java.sql.*;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.JTextField;
-import javax.swing.JTextArea;
-import javax.swing.JLabel;
-import javax.swing.*;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 
 public class Mz_write extends JDialog{
@@ -114,14 +120,14 @@ public class Mz_write extends JDialog{
 							Class.forName("com.mysql.cj.jdbc.Driver");
 							
 							conn = DriverManager.getConnection(
-								"jdbc:mysql://127.0.0.1:3306/board",
-								"root",
-								"1234"
+								"jdbc:mysql://222.119.100.81:3382/mz",
+								"bong",
+								"mz1234"
 							);
 							
 							String sql = "" +
 									"INSERT INTO board_tbl(user_name, board_title,board_date, board_post )"
-									+ " values(?, ?, now(), ? )";
+									+ " values(?, ?, now(),? )";
 							PreparedStatement pstmt = conn.prepareStatement(sql);
 							pstmt.setString(1, Mz_data.InputUser);
 							pstmt.setString(2, Mz_data.InputTitle);			
@@ -130,7 +136,33 @@ public class Mz_write extends JDialog{
 							
 							pstmt.executeUpdate();
 							
-							pstmt.close();		
+							pstmt.close();
+							
+							DefaultTableModel tableModel = (DefaultTableModel)Mz_board.jTable.getModel();
+							tableModel.setNumRows(0);
+							
+							String sql1 = "" +
+									"SELECT board_uid, user_name, board_title, board_date, board_hit, board_post " +
+									"FROM board_tbl ";
+							Statement st = conn.createStatement();
+							ResultSet rs = st.executeQuery(sql1);   // 쿼리 실행후 결과 값을 resultset에 담아 두기
+							
+							while(rs.next()){            // 각각 값을 가져와서 테이블값들을 추가
+								tableModel.addRow(
+										new Object[]{rs.getInt("board_uid"),rs.getString("user_name"),
+												rs.getString("board_title"),rs.getString("board_date"),
+												rs.getInt("board_hit") , rs.getString("board_post")
+										});
+							}
+								
+//						model=new DefaultTableModel(Mz_board.getJTable().tableModel ,columnNames);    
+//						Mz_board.jTable.setModel(model);
+//						Mz_board.jTable.getColumn("렌더링셀").setCellRenderer(new ButtonRenderer());
+//						Mz_board.jTable.getColumn("렌더링셀").setCellEditor(new ButtonEditor(new JCheckBox()));	
+
+							
+							
+							dispose();
 							
 						} catch (Exception e1) {
 							e1.printStackTrace();			
@@ -148,6 +180,7 @@ public class Mz_write extends JDialog{
 				okButton.setActionCommand("저장");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
+				
 			}
 			
 			
@@ -167,3 +200,4 @@ public class Mz_write extends JDialog{
 		
 	}
 }
+
