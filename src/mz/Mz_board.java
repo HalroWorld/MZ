@@ -3,8 +3,6 @@ package mz;
 import java.sql.*;
 import java.util.Vector;
 import java.io.*;
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.*;
@@ -33,12 +31,17 @@ public class Mz_board extends JFrame {
 		this.setTitle("게시판 리스트");;
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JScrollPane scrollPane = new JScrollPane(getJTable());
-		scrollPane.setViewportBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 199, 7), null, null, null));
+		scrollPane.setAlignmentX(Component.LEFT_ALIGNMENT);
+		scrollPane.setAlignmentY(Component.TOP_ALIGNMENT);
+		scrollPane.setBackground(new Color(255, 255, 255));
+		scrollPane.setForeground(new Color(255, 242, 197));
+		scrollPane.setFont(new Font("맑은 고딕", Font.PLAIN, 16));
 		this.getContentPane().add(scrollPane,
 				 BorderLayout.CENTER);
 		this.getContentPane().add(getPSouth(), BorderLayout.SOUTH);
 		this.setSize(1000,800);
-		
+		this.setTitle("맛-ZIP");
+		this.setIconImage(new ImageIcon("src/mz/mzImg/mzduck.png").getImage());
 //		try {
 //			Class.forName("com.mysql.cj.jdbc.Driver");
 //			
@@ -76,6 +79,10 @@ public class Mz_board extends JFrame {
 			
 			
 			jTable.getTableHeader().setReorderingAllowed(false);	// 컬럼 헤드 고정
+			jTable.getTableHeader().setBackground(new Color(255,242,197));
+			jTable.getTableHeader().setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 30));
+			jTable.setRowHeight(30);
+			
 			
 			
 			
@@ -212,9 +219,12 @@ public class Mz_board extends JFrame {
 	public JButton getBtnInsert() {
 		if(btnInsert == null) {
 			btnInsert = new JButton();
+			btnInsert.setBackground(new Color(255, 255, 255));
+			btnInsert.setForeground(new Color(0, 0, 0));
+			btnInsert.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 20));
 			btnInsert.addMouseListener(new MouseAdapter() {
 				@Override
-				public void mouseClicked(MouseEvent e) {
+				public void mouseEntered(MouseEvent e) {
 					btnInsert.setBackground(new Color(255,199,7));
 					btnInsert.setForeground(Color.WHITE);
 				}
@@ -243,9 +253,12 @@ public class Mz_board extends JFrame {
 	private JButton getBtnOpen() {
 		if (btnopen == null) {
 			btnopen = new JButton("게시물 열기");
+			btnopen.setForeground(new Color(0, 0, 0));
+			btnopen.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 20));
+			btnopen.setBackground(new Color(255, 255, 255));
 			btnopen.addMouseListener(new MouseAdapter() {
 				@Override
-				public void mouseClicked(MouseEvent e) {
+				public void mouseEntered(MouseEvent e) {
 					btnopen.setBackground(new Color(255,199,7));
 					btnopen.setForeground(Color.WHITE);
 				}
@@ -274,9 +287,12 @@ public class Mz_board extends JFrame {
 	public JButton getBtnDelete() {
 		if(btnDelete == null) {
 			btnDelete = new JButton();
+			btnDelete.setForeground(new Color(0, 0, 0));
+			btnDelete.setBackground(new Color(255, 255, 255));
+			btnDelete.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 20));
 			btnDelete.addMouseListener(new MouseAdapter() {
 				@Override
-				public void mouseClicked(MouseEvent e) {
+				public void mouseEntered(MouseEvent e) {
 					btnDelete.setBackground(new Color(255,199,7));
 					btnDelete.setForeground(Color.WHITE);
 				}
