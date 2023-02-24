@@ -61,7 +61,7 @@ public class Mz_write extends JDialog{
 	public Mz_write(JFrame owner) {
 		this.setTitle("게시물 작성");
 		this.setIconImage(new ImageIcon("src/mz/mzImg/mzduck.png").getImage());
-		setBounds(100, 100, 567, 405);
+		setBounds(950, 300, 567, 405);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(255, 242, 197));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));

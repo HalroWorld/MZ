@@ -375,6 +375,13 @@ public class MZ_home_p1 {
 		btn_QNA.setBackground(Color.WHITE);
 		btn_QNA.setBounds(44, 622, 275, 106);
 		btn_QNA.setBorderPainted(false);
+		btn_QNA.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new Mz_qnaBoard();
+//				frame.setVisible(false);
+			}
+		});
 		menu_G.add(btn_QNA);
 		
 		// 홈 버튼 생성(사이즈 및 위치 조정, 패널에 추가, 이미지 적용)
@@ -391,10 +398,18 @@ public class MZ_home_p1 {
 				btn_Home.setBackground(Color.WHITE);
 			}
 		});
+		btn_Home.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				new MZ_home_p1();
+			}
+		});
 		btn_Home.setIcon(new ImageIcon(MZ_home_p1.class.getResource("/mz/mzImg/home.png")));
 		btn_Home.setBackground(Color.WHITE);
 		btn_Home.setBounds(398, 624, 275, 106);
 		btn_Home.setBorderPainted(false);
+		
 		menu_G.add(btn_Home);
 		
 		// 리뷰 버튼 생성(사이즈 및 위치 조정, 패널에 추가, 이미지 적용)

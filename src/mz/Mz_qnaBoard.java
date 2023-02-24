@@ -28,7 +28,7 @@ public class Mz_qnaBoard extends JFrame {
 	
 	// 메인 윈도우 설정
 	public Mz_qnaBoard() {
-		this.setTitle("게시판 리스트");;
+		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JScrollPane scrollPane = new JScrollPane(getJTable());
 		scrollPane.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -39,27 +39,24 @@ public class Mz_qnaBoard extends JFrame {
 		this.getContentPane().add(scrollPane,
 				 BorderLayout.CENTER);
 		this.getContentPane().add(getPSouth(), BorderLayout.SOUTH);
+		this.setBounds(770, 250, 1102, 1270);
 		this.setSize(1000,800);
 		this.setTitle("맛-ZIP");
 		this.setIconImage(new ImageIcon("src/mz/mzImg/mzduck.png").getImage());
-//		try {
-//			Class.forName("com.mysql.cj.jdbc.Driver");
-//			
-//			conn = DriverManager.getConnection(
-//				"jdbc:mysql://127.0.0.1:3306/board",
-//				"root",
-//				"1234"
-//			);
-//			System.out.println("연결 성공");
-//		} catch(Exception e) {
-//			e.printStackTrace();
-//		}finally {
-//				if(conn != null) {
-//					try {
-//						conn.close();
-//					} catch (SQLException e1) {}
-//				}
-//			}
+		
+		JButton btn_home = new JButton();
+		btn_home.setIcon(new ImageIcon(MZ_list_p2_K.class.getResource("/mz/mzImg/home.png")));
+		btn_home.setBorderPainted(false);
+		btn_home.setBackground(new Color (255,255,255));
+		btn_home.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				new MZ_home_p1();
+			}
+		});
+		pSouth.add(btn_home);
+
 		
 	}
 	

@@ -24,11 +24,13 @@ public class Mz_board extends JFrame {
 	
 	String a,b,c;
 	private JButton btnopen;
+	private JPanel pNorth;
+	private JLabel lblNewLabel;
 //	private JButton btnNewButton;
 	
 	// 메인 윈도우 설정
 	public Mz_board() {
-
+		
 	
 		this.setVisible(true);
 	
@@ -42,12 +44,12 @@ public class Mz_board extends JFrame {
 		this.getContentPane().add(scrollPane,
 				 BorderLayout.CENTER);
 		this.getContentPane().add(getPSouth(), BorderLayout.SOUTH);
-		this.setBounds(770, 200, 1102, 1270);
+		this.setBounds(770, 250, 1102, 1270);
 		this.setSize(1000,800);
 		this.setTitle("맛-ZIP");
 		this.setIconImage(new ImageIcon("src/mz/mzImg/mzduck.png").getImage());
 		
-		JButton btn_home = new JButton("home");
+		JButton btn_home = new JButton();
 		btn_home.setIcon(new ImageIcon(MZ_list_p2_K.class.getResource("/mz/mzImg/home.png")));
 		btn_home.setBorderPainted(false);
 		btn_home.setBackground(new Color (255,255,255));
@@ -59,6 +61,7 @@ public class Mz_board extends JFrame {
 			}
 		});
 		pSouth.add(btn_home);
+		getContentPane().add(getPNorth(), BorderLayout.NORTH);
 //		try {
 //			Class.forName("com.mysql.cj.jdbc.Driver");
 //			
@@ -354,4 +357,23 @@ public class Mz_board extends JFrame {
 		});
 	}
 	
+	private JPanel getPNorth() {
+		if (pNorth == null) {
+			pNorth = new JPanel();
+			pNorth.setPreferredSize(new Dimension(100, 50));
+			
+			pNorth.setBackground(Color.WHITE);
+			pNorth.setLayout(new GridLayout(0, 1, 0, 0));
+			pNorth.add(getLblNewLabel());
+		}
+		return pNorth;
+	}
+	private JLabel getLblNewLabel() {
+		if (lblNewLabel == null) {
+			lblNewLabel = new JLabel("리뷰 게시판");
+			lblNewLabel.setFont(new Font("배달의민족 한나체 Pro", Font.PLAIN, 28));
+			lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		}
+		return lblNewLabel;
+	}
 }
