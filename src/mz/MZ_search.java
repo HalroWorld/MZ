@@ -1,6 +1,5 @@
 package mz;
 
-
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -27,7 +26,7 @@ import javax.swing.JComboBox;
 
 public class MZ_search {
 
-	private JFrame frame;
+	public JFrame frame;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -45,6 +44,8 @@ public class MZ_search {
 	public MZ_search() {
 		initialize();
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
+
 	}
 
 	private void initialize() {
@@ -81,6 +82,15 @@ public class MZ_search {
 		btn_Back.setBorderPainted(false);
 		btn_Back.setBackground(Color.WHITE);
 		panel.add(btn_Back);
+		btn_Back.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+                if(btn_Back.getText().equals("back")){
+                    new MZ_home_p1();
+					frame.setVisible(false);
+                }
+			}
+		});
 		
 		// 홈 버튼
 		JButton btn_Home = new JButton("Home");
@@ -89,21 +99,31 @@ public class MZ_search {
 		btn_Home.setBorderPainted(false);
 		btn_Home.setBackground(Color.WHITE);
 		panel.add(btn_Home);
+		btn_Home.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+                if(btn_Home.getText().equals("Home")){
+                    new MZ_home_p1();
+					frame.setVisible(false);
+                }
+			}
+		});
 		
 		// 스크롤 존
-		JScrollPane scrollPane = new JScrollPane();
+//		JScrollPane scrollPane = new JScrollPane();
 //		frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
 		
 		// 타이틀 크기 존
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 255, 255));
-		scrollPane.setViewportView(panel_1);
+//		scrollPane.setViewportView(panel_1);
 		panel_1.setPreferredSize(new Dimension(1000, 3000));
 		frame.setBounds(100, 100, 1101, 999);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-	
+		MZ_tbl.num =1;
 		for(int i=0; i<3; i++) {
+			
 			db.select(MZ_tbl.str, i+1);
 			int b = 650*i;
 			// 왼쪽 이미지
@@ -183,13 +203,14 @@ public class MZ_search {
 			btn_storeName.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					if(btn_storeName.getText().equals(db.mzList.getMzTitle())){
+//					if(btn_storeName.getText().equals(db.mzList.getMzTitle())){
 ////                    MZ_menu_p3.MZ_menu_p3();
+						
 						MZ_DB_Update up = new MZ_DB_Update();
 						up.update("update mz_tbl set mz_hit=(mz_hit+1)");
 						MZ_menu_p3.main(null);
 						frame.setVisible(false);
-					}
+//					}
 				}
 			});
 			
@@ -203,13 +224,14 @@ public class MZ_search {
 			btn_More.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					if(btn_More.getText().equals("더보기")){
+//					if(btn_More.getText().equals("더보기")){
 //                    MZ_menu_p3.MZ_menu_p3();
+						
 						MZ_DB_Update up = new MZ_DB_Update();
 						up.update("update mz_tbl set mz_hit=(mz_hit+1)");
 						MZ_menu_p3.main(null);
 						frame.setVisible(false);
-					}
+//					}
 				}
 			});
 			frame.getContentPane().setLayout(new BorderLayout(0, 0));
@@ -259,12 +281,14 @@ public class MZ_search {
 //			list_G.add(star);
 			
 			System.out.println();
+			
 		}
 	
 		
 		int v = ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS;
       	int h = ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS;
       	JScrollPane scrollPane1 = new JScrollPane(panel_1, v,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+      	scrollPane1.getVerticalScrollBar().setUnitIncrement(16);
       	panel_1.setLayout(null);
       	
 		frame.getContentPane().add(scrollPane1, BorderLayout.CENTER);

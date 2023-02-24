@@ -4,11 +4,14 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -213,7 +216,8 @@ public class MZ_home_p1 {
 		search.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String data = search.getText(); 
+				String data = search.getText();
+				
         if(data.equals("한식")){
         	MZ_tbl.str = "k";
 				MZ_tbl.num = 1;
@@ -229,12 +233,15 @@ public class MZ_home_p1 {
         	MZ_tbl.str = "d";
         }else if(data.equals("아재")) {
         	MZ_tbl.str = "az";
+        } else {
+        	MZ_tbl.str = "k";
         }
-        
-	
-            new MZ_search();
-					frame.setVisible(false);
-                }
+
+        	new MZ_search();
+        	frame.setVisible(false);
+        	
+
+			}
 		});
 		menu_G.add(search);
 		
@@ -243,6 +250,7 @@ public class MZ_home_p1 {
 		button.setIcon(new ImageIcon(MZ_home_p1.class.getResource("/mz/mzImg/se.png")));
 		button.setBackground(Color.WHITE);
 		button.setBounds(931, 26, 95, 49);
+
 		button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -263,8 +271,10 @@ public class MZ_home_p1 {
         }else if(data.equals("아재")) {
         	MZ_tbl.str = "az";
         }
-               new MZ_search();
-					frame.setVisible(false);
+        
+        	new MZ_search();
+        	frame.setVisible(false);
+        	
                 }
 		});
 		menu_G.add(button);
@@ -276,6 +286,16 @@ public class MZ_home_p1 {
 		btn_QNA.setBounds(44, 622, 275, 106);
 		btn_QNA.setBorderPainted(false);
 		menu_G.add(btn_QNA);
+		
+		//에러 기능 추가
+		btn_QNA.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+//				JOptionPane aa = new JOptionPane();
+//				JOptionPane.showMessageDialog(null, "업데이트 중입니다", "경고창", JOptionPane.ERROR_MESSAGE);
+				new MZ_ErrorWindow();
+				}
+		});
 		
 		// 홈 버튼 생성(사이즈 및 위치 조정, 패널에 추가, 이미지 적용)
 		JButton btn_Home = new JButton("");
@@ -292,6 +312,16 @@ public class MZ_home_p1 {
 		btn_Re.setBounds(749, 622, 277, 106);
 		btn_Re.setBorderPainted(false);
 		menu_G.add(btn_Re);
+		
+		// 에러 기능 추가
+		btn_Re.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+//				JOptionPane aa = new JOptionPane();
+//				JOptionPane.showMessageDialog(null, "업데이트 중입니다", "경고창", JOptionPane.ERROR_MESSAGE);
+				new MZ_ErrorWindow();
+				}
+		});
 	}
 
 }
