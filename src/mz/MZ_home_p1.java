@@ -400,6 +400,14 @@ public class MZ_home_p1 {
 		// 리뷰 버튼 생성(사이즈 및 위치 조정, 패널에 추가, 이미지 적용)
 		JButton btn_Re = new JButton("리뷰");
 		// 마우스 호버효과
+		
+		btn_Re.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new Mz_board();
+//				frame.setVisible(false);
+			}
+		});
 		btn_Re.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {

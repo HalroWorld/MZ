@@ -28,7 +28,10 @@ public class Mz_board extends JFrame {
 	
 	// 메인 윈도우 설정
 	public Mz_board() {
-		this.setTitle("게시판 리스트");;
+
+	
+		this.setVisible(true);
+	
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JScrollPane scrollPane = new JScrollPane(getJTable());
 		scrollPane.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -39,9 +42,23 @@ public class Mz_board extends JFrame {
 		this.getContentPane().add(scrollPane,
 				 BorderLayout.CENTER);
 		this.getContentPane().add(getPSouth(), BorderLayout.SOUTH);
+		this.setBounds(770, 200, 1102, 1270);
 		this.setSize(1000,800);
 		this.setTitle("맛-ZIP");
 		this.setIconImage(new ImageIcon("src/mz/mzImg/mzduck.png").getImage());
+		
+		JButton btn_home = new JButton("home");
+		btn_home.setIcon(new ImageIcon(MZ_list_p2_K.class.getResource("/mz/mzImg/home.png")));
+		btn_home.setBorderPainted(false);
+		btn_home.setBackground(new Color (255,255,255));
+		btn_home.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				new MZ_home_p1();
+			}
+		});
+		pSouth.add(btn_home);
 //		try {
 //			Class.forName("com.mysql.cj.jdbc.Driver");
 //			
@@ -314,13 +331,10 @@ public class Mz_board extends JFrame {
 						DefaultTableModel tableModel = (DefaultTableModel)
 								getJTable().getModel();
 						tableModel.removeRow(rowIndex);
-						txtNo.setText("");
-						txtTitle.setText("");
-						txtUser.setText("");
-						txtDate.setText("");
-						txtViews.setText("");
-						txtContent.setText("");
-						
+					
+						System.out.println(rowIndex);
+						MZ_DB_Delete db_del = new MZ_DB_Delete();
+						db_del.delete(rowIndex);	
 						
 					}
 				}
@@ -329,7 +343,8 @@ public class Mz_board extends JFrame {
 		return btnDelete;
 	}
 	
-
+	
+	
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {

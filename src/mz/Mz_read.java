@@ -25,9 +25,6 @@ public class Mz_read extends JDialog {
 	static Board_tbl board = new Board_tbl();
 	
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		try {
 			Mz_read dialog = new Mz_read();
@@ -42,7 +39,7 @@ public class Mz_read extends JDialog {
 		
 		this.setTitle("게시물 보기");
 		this.setIconImage(new ImageIcon("src/mz/mzImg/mzduck.png").getImage());
-		setBounds(100, 100, 567, 405);
+		setBounds(950, 300, 567, 405);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(255, 242, 192));
 		contentPanel.setLayout(new FlowLayout());
