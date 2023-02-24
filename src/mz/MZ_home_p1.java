@@ -316,8 +316,20 @@ public class MZ_home_p1 {
 		
 	// 검색 버튼 생성(사이즈 및 위치 조정, 패널에 추가, 이미지 적용)
 		JButton button = new JButton("");
+		button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				button.setBackground(new Color(255,242,197));
+				button.repaint();
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				button.setBackground(Color.WHITE);
+			}
+		});
 		button.setIcon(new ImageIcon(MZ_home_p1.class.getResource("/mz/mzImg/se.png")));
 		button.setBackground(Color.WHITE);
+		
 		button.setBounds(931, 26, 95, 49);
 		button.addActionListener(new ActionListener() {
 			@Override
