@@ -12,6 +12,7 @@ import javax.swing.table.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.border.BevelBorder;
 
 public class Mz_board extends JFrame {
 	public static JTable jTable;
@@ -24,7 +25,7 @@ public class Mz_board extends JFrame {
 	
 	
 	String a,b,c;
-	private JButton btnNewButton;
+	private JButton btnopen;
 //	private JButton btnNewButton;
 	
 	// 메인 윈도우 설정
@@ -32,6 +33,7 @@ public class Mz_board extends JFrame {
 		this.setTitle("게시판 리스트");;
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JScrollPane scrollPane = new JScrollPane(getJTable());
+		scrollPane.setViewportBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 199, 7), null, null, null));
 		this.getContentPane().add(scrollPane,
 				 BorderLayout.CENTER);
 		this.getContentPane().add(getPSouth(), BorderLayout.SOUTH);
@@ -177,9 +179,11 @@ public class Mz_board extends JFrame {
 	public JPanel getPSouth() {
 		if(pSouth == null) {
 			pSouth = new JPanel();
+			pSouth.setBackground(new Color(255, 255, 255));
 			
 			pSouth.setLayout(new GridLayout(3,1));			
 			JPanel pButton = new JPanel();
+			pButton.setBackground(new Color(255, 255, 255));
 			pButton.add(getBtnInsert());
 			pButton.add(getBtnOpen());
 			pButton.add(getBtnDelete());
@@ -208,7 +212,20 @@ public class Mz_board extends JFrame {
 	public JButton getBtnInsert() {
 		if(btnInsert == null) {
 			btnInsert = new JButton();
+			btnInsert.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					btnInsert.setBackground(new Color(255,199,7));
+					btnInsert.setForeground(Color.WHITE);
+				}
+				@Override
+				public void mouseExited(MouseEvent e) {
+					btnInsert.setBackground(Color.WHITE);
+					btnInsert.setForeground(Color.BLACK);
+				}
+			});
 			btnInsert.setText("추가");
+			btnInsert.setBorderPainted(false);
 			btnInsert.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					// 다이얼로그 띄우기
@@ -224,9 +241,22 @@ public class Mz_board extends JFrame {
 	
 	// 게시물 열기 버튼
 	private JButton getBtnOpen() {
-		if (btnNewButton == null) {
-			btnNewButton = new JButton("게시물 열기");
-			btnNewButton.addActionListener(new ActionListener() {
+		if (btnopen == null) {
+			btnopen = new JButton("게시물 열기");
+			btnopen.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					btnopen.setBackground(new Color(255,199,7));
+					btnopen.setForeground(Color.WHITE);
+				}
+				@Override
+				public void mouseExited(MouseEvent e) {
+					btnopen.setBackground(Color.WHITE);
+					btnopen.setForeground(Color.BLACK);
+				}
+			});
+			btnopen.setBorderPainted(false);
+			btnopen.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					// 게시물 다이얼로그 띄우기
 					Mz_read jDialog = new Mz_read();
@@ -234,7 +264,7 @@ public class Mz_board extends JFrame {
 				}
 			});
 		}
-		return btnNewButton;
+		return btnopen;
 	}
 	
 	
@@ -244,6 +274,19 @@ public class Mz_board extends JFrame {
 	public JButton getBtnDelete() {
 		if(btnDelete == null) {
 			btnDelete = new JButton();
+			btnDelete.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					btnDelete.setBackground(new Color(255,199,7));
+					btnDelete.setForeground(Color.WHITE);
+				}
+				@Override
+				public void mouseExited(MouseEvent e) {
+					btnDelete.setBackground(Color.WHITE);
+					btnDelete.setForeground(Color.BLACK);
+				}
+			});
+			btnDelete.setBorderPainted(false);
 			btnDelete.setText("삭제");
 			btnDelete.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {					
